@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="32dp">
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Profilim" android:textSize="26sp" android:textColor="#FFFFFF"
+                android:textStyle="bold" android:paddingTop="48dp" android:layout_marginBottom="20dp"/>
+
+            <androidx.cardview.widget.CardView android:id="@+id/avatarCard"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardBackgroundColor="#00000000" app:cardCornerRadius="24dp"
+                app:cardElevation="12dp" android:layout_marginBottom="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:gravity="center"
+                    android:background="@drawable/scan_card_gradient" android:padding="28dp">
+                    <TextView android:id="@+id/tvInitials"
+                        android:layout_width="80dp" android:layout_height="80dp"
+                        android:text="DS" android:textSize="28sp" android:textColor="#1A1035"
+                        android:textStyle="bold" android:gravity="center"
+                        android:background="@drawable/circle_gold" android:layout_marginBottom="14dp"/>
+                    <TextView android:id="@+id/tvName"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Yükleniyor..." android:textSize="22sp"
+                        android:textColor="#FFFFFF" android:textStyle="bold" android:layout_marginBottom="4dp"/>
+                    <TextView android:id="@+id/tvEmail"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="" android:textSize="13sp" android:textColor="#CCCCDD"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView android:id="@+id/infoCard"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardBackgroundColor="#1A1A32" app:cardCornerRadius="20dp"
+                app:cardElevation="4dp" android:layout_marginBottom="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="20dp">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="KİŞİSEL BİLGİLER" android:textSize="11sp"
+                            android:textColor="#7B7B9A" android:letterSpacing="0.15"/>
+                        <TextView android:id="@+id/btnEditProfile"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="✏️ Düzenle" android:textSize="13sp" android:textColor="#C9A84C"
+                            android:paddingStart="8dp" android:paddingEnd="8dp"
+                            android:paddingTop="4dp" android:paddingBottom="4dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:id="@+id/viewMode"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:orientation="horizontal" android:gravity="center_vertical"
+                            android:layout_marginBottom="14dp">
+                            <TextView android:layout_width="40dp" android:layout_height="40dp"
+                                android:text="🎂" android:textSize="18sp" android:gravity="center"
+                                android:background="@drawable/circle_dark"/>
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:text="Yaş" android:textSize="11sp" android:textColor="#7B7B9A"/>
+                                <TextView android:id="@+id/tvAge" android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:text="-"
+                                    android:textSize="16sp" android:textColor="#FFFFFF" android:textStyle="bold"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:orientation="horizontal" android:gravity="center_vertical"
+                            android:layout_marginBottom="14dp">
+                            <TextView android:layout_width="40dp" android:layout_height="40dp"
+                                android:text="🌡️" android:textSize="18sp" android:gravity="center"
+                                android:background="@drawable/circle_dark"/>
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:text="Fitzpatrick Deri Tipi" android:textSize="11sp" android:textColor="#7B7B9A"/>
+                                <TextView android:id="@+id/tvSkinType" android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:text="-"
+                                    android:textSize="16sp" android:textColor="#FFFFFF" android:textStyle="bold"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:orientation="horizontal" android:gravity="center_vertical"
+                            android:layout_marginBottom="14dp">
+                            <TextView android:layout_width="40dp" android:layout_height="40dp"
+                                android:text="🌿" android:textSize="18sp" android:gravity="center"
+                                android:background="@drawable/circle_dark"/>
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:text="Alerji Notları" android:textSize="11sp" android:textColor="#7B7B9A"/>
+                                <TextView android:id="@+id/tvAllergyNotes" android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:text="-"
+                                    android:textSize="14sp" android:textColor="#FFFFFF"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:orientation="horizontal" android:gravity="center_vertical">
+                            <TextView android:layout_width="40dp" android:layout_height="40dp"
+                                android:text="⏰" android:textSize="18sp" android:gravity="center"
+                                android:background="@drawable/circle_dark"/>
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:text="Tarama Hatırlatıcısı" android:textSize="11sp" android:textColor="#7B7B9A"/>
+                                <TextView android:id="@+id/tvReminder" android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:text="Kapalı"
+                                    android:textSize="14sp" android:textColor="#FFFFFF"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout android:id="@+id/editMode"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:visibility="gone">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Ad Soyad" android:textSize="11sp" android:textColor="#7B7B9A"
+                            android:layout_marginBottom="6dp"/>
+                        <EditText android:id="@+id/etNameEdit"
+                            android:layout_width="match_parent" android:layout_height="52dp"
+                            android:textColor="#FFFFFF" android:background="@drawable/input_bg"
+                            android:paddingStart="16dp" android:paddingEnd="16dp"
+                            android:inputType="textPersonName" android:layout_marginBottom="14dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Yaş" android:textSize="11sp" android:textColor="#7B7B9A"
+                            android:layout_marginBottom="6dp"/>
+                        <EditText android:id="@+id/etAgeEdit"
+                            android:layout_width="match_parent" android:layout_height="52dp"
+                            android:textColor="#FFFFFF" android:background="@drawable/input_bg"
+                            android:paddingStart="16dp" android:paddingEnd="16dp"
+                            android:inputType="number" android:layout_marginBottom="14dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Fitzpatrick Deri Tipi" android:textSize="11sp" android:textColor="#7B7B9A"
+                            android:layout_marginBottom="6dp"/>
+                        <Spinner android:id="@+id/spinnerSkinEdit"
+                            android:layout_width="match_parent" android:layout_height="52dp"
+                            android:background="@drawable/spinner_bg"
+                            android:paddingStart="12dp" android:paddingEnd="12dp"
+                            android:layout_marginBottom="14dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Alerji ve Hassasiyet Notları" android:textSize="11sp" android:textColor="#7B7B9A"
+                            android:layout_marginBottom="6dp"/>
+                        <EditText android:id="@+id/etAllergyEdit"
+                            android:layout_width="match_parent" android:layout_height="80dp"
+                            android:textColor="#FFFFFF" android:background="@drawable/input_bg"
+                            android:padding="12dp" android:gravity="top" android:inputType="textMultiLine"
+                            android:textColorHint="#444466" android:layout_marginBottom="16dp"/>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <Button android:id="@+id/btnSaveEdit"
+                                android:layout_width="0dp" android:layout_height="48dp"
+                                android:layout_weight="1" android:layout_marginEnd="6dp"
+                                android:text="Kaydet" android:textColor="#1A1035" android:textStyle="bold"
+                                android:backgroundTint="#C9A84C" app:cornerRadius="12dp"/>
+                            <Button android:id="@+id/btnCancelEdit"
+                                android:layout_width="0dp" android:layout_height="48dp"
+                                android:layout_weight="1" android:layout_marginStart="6dp"
+                                android:text="İptal" android:textColor="#C9A84C"
+                                android:backgroundTint="#22224A" app:cornerRadius="12dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView android:id="@+id/pieCard"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardBackgroundColor="#1A1A32" app:cardCornerRadius="20dp"
+                app:cardElevation="4dp" android:layout_marginBottom="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="20dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="RİSK DAĞILIMI" android:textSize="11sp"
+                        android:textColor="#7B7B9A" android:letterSpacing="0.15" android:layout_marginBottom="16dp"/>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical">
+                        <com.example.dermsense.PieChartView android:id="@+id/pieChart"
+                            android:layout_width="140dp" android:layout_height="140dp"/>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="20dp">
+                            <TextView android:id="@+id/tvLegendHigh" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:text="🔴 Yüksek: 0"
+                                android:textSize="14sp" android:textColor="#FF4444" android:textStyle="bold"
+                                android:layout_marginBottom="10dp"/>
+                            <TextView android:id="@+id/tvLegendMid" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:text="⚠️ Orta: 0"
+                                android:textSize="14sp" android:textColor="#FFA500" android:textStyle="bold"
+                                android:layout_marginBottom="10dp"/>
+                            <TextView android:id="@+id/tvLegendLow" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:text="✅ Düşük: 0"
+                                android:textSize="14sp" android:textColor="#44BB44" android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="SON TARAMALAR"
+                    android:textSize="11sp" android:textColor="#7B7B9A" android:letterSpacing="0.15"/>
+            </LinearLayout>
+
+            <TextView android:id="@+id/tvNoScans"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Henüz tarama yapılmadı" android:textSize="14sp"
+                android:textColor="#7B7B9A" android:gravity="center"
+                android:visibility="gone" android:padding="20dp"/>
+
+            <LinearLayout android:id="@+id/scansList"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:layout_marginBottom="20dp"/>
+
+            <Button android:id="@+id/btnLogout"
+                android:layout_width="match_parent" android:layout_height="52dp"
+                android:text="Çıkış Yap" android:textColor="#FF6B6B" android:textStyle="bold"
+                android:backgroundTint="#2A1520" app:cornerRadius="16dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#15152E"
+        app:itemIconTint="#C9A84C"
+        app:itemTextColor="#C9A84C"
+        app:menu="@menu/bottom_nav_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

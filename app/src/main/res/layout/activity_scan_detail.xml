@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="32dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tarama Detayı"
+            android:textSize="26sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:paddingTop="48dp"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Ana bilgi kartı -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#00000000"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="12dp"
+            android:layout_marginBottom="20dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/scan_card_gradient"
+                android:padding="24dp">
+                <TextView
+                    android:id="@+id/tvDiagnosis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="---"
+                    android:textSize="24sp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:id="@+id/tvRisk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="---"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="14dp"/>
+                <TextView
+                    android:id="@+id/tvConfidence"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Model Güveni: -%"
+                    android:textSize="13sp"
+                    android:textColor="#CCCCDD"
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp"/>
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:max="100"
+                    android:progressTint="#C9A84C"
+                    android:progressBackgroundTint="#33FFFFFF"
+                    android:layout_marginBottom="16dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="📅 -"
+                        android:textSize="13sp"
+                        android:textColor="#CCCCDD"/>
+                    <TextView
+                        android:id="@+id/tvRegion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="📍 -"
+                        android:textSize="13sp"
+                        android:textColor="#CCCCDD"
+                        android:gravity="end"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ABCDE -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ABCDE ANALİZİ"
+            android:textSize="11sp"
+            android:textColor="#7B7B9A"
+            android:letterSpacing="0.15"
+            android:layout_marginBottom="10dp"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="8dp">
+            <androidx.cardview.widget.CardView android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1"
+                android:layout_marginEnd="6dp" app:cardBackgroundColor="#1A1A32"
+                app:cardCornerRadius="16dp" app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="A  Asimetri" android:textColor="#C9A84C"
+                        android:textStyle="bold" android:textSize="13sp"/>
+                    <TextView android:id="@+id/tvA" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="---"
+                        android:textColor="#CCCCCC" android:textSize="12sp" android:layout_marginTop="5dp"/>
+                    <TextView android:id="@+id/tvAStatus" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="---"
+                        android:textSize="12sp" android:textStyle="bold" android:layout_marginTop="5dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1"
+                android:layout_marginStart="6dp" app:cardBackgroundColor="#1A1A32"
+                app:cardCornerRadius="16dp" app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="B  Border" android:textColor="#C9A84C"
+                        android:textStyle="bold" android:textSize="13sp"/>
+                    <TextView android:id="@+id/tvB" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="---"
+                        android:textColor="#CCCCCC" android:textSize="12sp" android:layout_marginTop="5dp"/>
+                    <TextView android:id="@+id/tvBStatus" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="---"
+                        android:textSize="12sp" android:textStyle="bold" android:layout_marginTop="5dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="20dp">
+            <androidx.cardview.widget.CardView android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1"
+                android:layout_marginEnd="6dp" app:cardBackgroundColor="#1A1A32"
+                app:cardCornerRadius="16dp" app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="C  Color" android:textColor="#C9A84C"
+                        android:textStyle="bold" android:textSize="13sp"/>
+                    <TextView android:id="@+id/tvC" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="---"
+                        android:textColor="#CCCCCC" android:textSize="12sp" android:layout_marginTop="5dp"/>
+                    <TextView android:id="@+id/tvCStatus" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="---"
+                        android:textSize="12sp" android:textStyle="bold" android:layout_marginTop="5dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1"
+                android:layout_marginStart="6dp" app:cardBackgroundColor="#1A1A32"
+                app:cardCornerRadius="16dp" app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="D  Diameter" android:textColor="#C9A84C"
+                        android:textStyle="bold" android:textSize="13sp"/>
+                    <TextView android:id="@+id/tvD" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="---"
+                        android:textColor="#CCCCCC" android:textSize="12sp" android:layout_marginTop="5dp"/>
+                    <TextView android:id="@+id/tvDStatus" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="---"
+                        android:textSize="12sp" android:textStyle="bold" android:layout_marginTop="5dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!-- Geri -->
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="← Geri"
+            android:textColor="#7B7B9A"
+            android:backgroundTint="#1A1A32"
+            app:cornerRadius="16dp"/>
+
+    </LinearLayout>
+</ScrollView>

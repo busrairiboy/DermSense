@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAF7F2">
+
+    <!-- Sag ust dekoratif yuvarlak -->
+    <View
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_gravity="top|end"
+        android:translationX="90dp"
+        android:translationY="-90dp"
+        android:background="@drawable/deco_circle_top"/>
+
+    <!-- Sol alt dekoratif yuvarlak -->
+    <View
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="bottom|start"
+        android:translationX="-70dp"
+        android:translationY="70dp"
+        android:background="@drawable/deco_circle_bottom"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00000000"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="32dp">
+
+            <!-- Logo -->
+            <LinearLayout
+                android:id="@+id/logoSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="52dp"
+                android:layout_marginBottom="32dp">
+
+                <FrameLayout
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="16dp">
+
+                    <!-- Dis kenarlik dairesi -->
+                    <View
+                        android:layout_width="88dp"
+                        android:layout_height="88dp"
+                        android:background="@drawable/logo_ring_outer"/>
+
+                    <!-- Ic kenarlik dairesi -->
+                    <View
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/logo_ring_inner"/>
+
+                    <ImageView
+                        android:id="@+id/ivLogo"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_logo"/>
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DermSense"
+                    android:textSize="28sp"
+                    android:textColor="#2C2318"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cilt sagligi analizi"
+                    android:textSize="13sp"
+                    android:textColor="#B5A898"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+
+            <!-- Tab satiri -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:background="@drawable/tab_bg_light"
+                android:padding="4dp"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Giris Yap"
+                    android:textSize="14sp"
+                    android:textColor="#F5A623"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/tab_active_light"/>
+
+                <TextView
+                    android:id="@+id/tabRegister"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Kayit Ol"
+                    android:textSize="14sp"
+                    android:textColor="#7A6E65"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <!-- E-posta -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E-posta"
+                android:textSize="12sp"
+                android:textColor="#B5A898"
+                android:layout_marginBottom="6dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/input_bg_light"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:layout_marginBottom="16dp">
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="✉"
+                    android:textSize="14sp"
+                    android:textColor="#C8BDB1"
+                    android:gravity="center"
+                    android:layout_marginEnd="10dp"/>
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textColor="#2C2318"
+                    android:textColorHint="#C8BDB1"
+                    android:inputType="textEmailAddress"
+                    android:background="@null"
+                    android:padding="0dp"/>
+            </LinearLayout>
+
+            <!-- Sifre -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sifre"
+                android:textSize="12sp"
+                android:textColor="#B5A898"
+                android:layout_marginBottom="6dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/input_bg_light"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:layout_marginBottom="8dp">
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="🔒"
+                    android:textSize="14sp"
+                    android:textColor="#C8BDB1"
+                    android:gravity="center"
+                    android:layout_marginEnd="10dp"/>
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textColor="#2C2318"
+                    android:textColorHint="#C8BDB1"
+                    android:inputType="textPassword"
+                    android:background="@null"
+                    android:padding="0dp"/>
+            </LinearLayout>
+
+            <!-- Sifremi unuttum -->
+            <TextView
+                android:id="@+id/tvForgot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sifremi unuttum"
+                android:textSize="12sp"
+                android:textColor="#E8823A"
+                android:layout_gravity="end"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Hata mesaji -->
+            <TextView
+                android:id="@+id/tvError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#D32F2F"
+                android:textSize="12sp"
+                android:visibility="gone"
+                android:background="@drawable/badge_red"
+                android:padding="10dp"
+                android:layout_marginBottom="12dp"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginBottom="12dp"
+                android:indeterminateTint="#F5A623"/>
+
+            <!-- Giris Yap butonu -->
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Giris Yap"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:backgroundTint="#F5A623"
+                app:cornerRadius="14dp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Ayrac -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+                <View android:layout_width="0dp" android:layout_height="1dp"
+                    android:layout_weight="1" android:background="#E8E0D5"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="veya"
+                    android:textSize="12sp"
+                    android:textColor="#C8BDB1"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"/>
+                <View android:layout_width="0dp" android:layout_height="1dp"
+                    android:layout_weight="1" android:background="#E8E0D5"/>
+            </LinearLayout>
+
+            <!-- Google ile giris -->
+            <LinearLayout
+                android:id="@+id/btnGoogleSignIn"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/input_bg_light"
+                android:layout_marginBottom="28dp">
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="wrap_content"
+                    android:text="G"
+                    android:textSize="18sp"
+                    android:textColor="#4285F4"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginEnd="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Google ile devam et"
+                    android:textSize="14sp"
+                    android:textColor="#7A6E65"/>
+            </LinearLayout>
+
+            <!-- Kayit ol linki -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hesabin yok mu? "
+                    android:textSize="13sp"
+                    android:textColor="#7A6E65"/>
+                <TextView
+                    android:id="@+id/btnRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kayit ol"
+                    android:textSize="13sp"
+                    android:textColor="#E8823A"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
