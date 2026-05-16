@@ -14,7 +14,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class InfoBottomSheet : BottomSheetDialogFragment() {
 
-    // Her bölge için çok detaylı öneriler
     data class RegionDetail(
         val icon: String,
         val sunProtection: String,
@@ -25,83 +24,67 @@ class InfoBottomSheet : BottomSheetDialogFragment() {
     )
 
     private val regionDetails = mapOf(
-        "Baş / Yüz" to RegionDetail(
-            icon = "👤",
-            sunProtection = "Yüz için SPF 50+ mineral bazlı (çinko oksit) güneş koruyucu kullanın. Her sabah nemlendiricinizin üzerine uygulayın. Gün içinde 4-6 saatte bir yenileyin. Geniş kenarlı şapka (7cm+) ve UV koruyucu güneş gözlüğü günlük rutininizin parçası olmalı.",
-            dailyCare = "Yüzünüzü sabah akşam nazikçe temizleyin. Retinol veya niasinamid içeren ürünler cilt yenilenmesine yardımcı olur. Gece nemlendirici kullanmak önemlidir. Göz çevresine ayrı bir göz kremi uygulayın. Dudakları da SPF içeren balzam ile koruyun.",
-            selfExam = "Her ay aynada yüzünüzü detaylıca inceleyin. Alın, şakak, burun, yanak, çene ve kulak arkasını kontrol edin. Yeni çıkan, değişen veya kaşınan lekeler varsa not alın. Dudak kenarlarındaki değişimlere dikkat edin. Boyun ve kulak arkasını da unutmayın.",
-            lifestyle = "Sigara içmek yüz cildini ciddi ölçüde yaşlandırır ve kanser riskini artırır. Yeterli uyku (7-8 saat) cilt yenilenmesini destekler. Bol su içmek (günde 2-2.5L) cilt nemini korur. A, C ve E vitaminleri içeren beslenme cilt sağlığı için önemlidir.",
-            whenToSeeDoctor = "Yüzde herhangi bir lezyon 6 haftadan uzun süre değişmeden kalmıyorsa veya büyüyorsa, yeni oluşan asimetrik lekeler, kabuklanma ve iyileşmeyen yaralar varsa dermatologa başvurun. Yıllık rutin kontrol önerilir."
+        "Bas / Yuz / Boyun" to RegionDetail(
+            icon = "🙂",
+            sunProtection = "Yuz icin SPF 50+ mineral bazli guneş koruyucu kullanin. Her sabah nemlendiricinizin uzerine uygulayin. Gun icinde 4-6 saatte bir yenileyin. Genis kenarlı sapka ve UV koruyucu gunes gozlugu kullanin.",
+            dailyCare = "Yuzunuzu sabah aksam nazikce temizleyin. Retinol veya niasinamid iceren urunler cilt yenilenmesine yardimci olur. Gece nemlendirici kullanmak onemlidir. Dudaklari da SPF iceren balzam ile koruyun.",
+            selfExam = "Her ay aynada yuzunuzu detaylica inceleyin. Alın, sakak, burun, yanak, cene ve kulak arkasini kontrol edin. Boyun ve kulak arkasini da unutmayin.",
+            lifestyle = "Sigara icmek yuz cildini ciddi olcude yaslandırır. Yeterli uyku cilt yenilenmesini destekler. Bol su icmek cilt nemini korur.",
+            whenToSeeDoctor = "Yuzde herhangi bir lezyon 6 haftadan uzun sure devam ediyorsa, yeni olusan asimetrik lekeler, kabuklanma ve iyilesmeyen yaralar varsa dermatologa basvurun."
         ),
-        "Boyun" to RegionDetail(
-            icon = "🫀",
-            sunProtection = "Boyun bölgesi güneş koruyucu uygulamada en sık atlanan yerdir. Yüze uygularken mutlaka boyuna da uzatın. Boyunluklu giysiler veya fular da etkili UV koruması sağlar. V yaka kıyafetlerde özellikle dikkatli olun.",
-            dailyCare = "Boyun cildi yüz kadar nazik olmasına rağmen çoğu zaman bakım rutinine dahil edilmez. Yüzünüze uyguladığınız nemlendirici ve serumu boyuna da uygulayın. Boynu yukarıdan aşağıya nazikçe masaj yaparak uygulayın. Telefon veya bilgisayar kullanırken tekrarlayan boyun katlantılarına dikkat edin.",
-            selfExam = "Aynada boyun önü ve yanlarını inceleyin. Arka boynu kontrol etmek için el aynası kullanın. Saç çizgisi yakınındaki bölgeleri özellikle kontrol edin. Lenf bezi şişliği veya anormal çıkıntılara dikkat edin.",
-            lifestyle = "Uzun süre aşağıya bakmak (telefon, tablet) boyunda tekrarlayan katlantılar oluşturabilir. Egzersiz ve iyi duruş alışkanlıkları bu durumu azaltır. Yüksek yaka giysiler veya eşarp seçimi hem koruma hem de estetik açıdan faydalıdır.",
-            whenToSeeDoctor = "Boyunda ağrısız şişlik, hızlı büyüyen lezyon veya yara iyileşmiyorsa hemen doktora gidin. Tiroid bölgesindeki şişlikler de mutlaka değerlendirilmelidir."
+        "Gogus" to RegionDetail(
+            icon = "❤️",
+            sunProtection = "Dekolteli kiyafet giyildiginde gogus bolgesine mutlaka SPF 30+ uygulanmalidir. Su gecirmez formuller havuz ve deniz aktiviteleri icin idealdir.",
+            dailyCare = "Gogus derisi ince ve hassastir. Kollajen uretimini destekleyen C vitamini iceren kremler kullanin. Nemlendirmeye ek olarak bir yag uygulayabilirsiniz.",
+            selfExam = "Her ay dus sonrasi gogus bolgesini inceleyin. Meme basi veya areola cevresindeki lezyon degisimlerini not alin.",
+            lifestyle = "Sigara cilt elastikiyetini azaltir. Saglikli kiloda kalmak cilt sagligini destekler.",
+            whenToSeeDoctor = "Goguste yeni cikan veya degisen ben, iyilesmeyen yara veya meme basi akintisi varsa mutlaka doktora gidin."
         ),
-        "Göğüs" to RegionDetail(
-            icon = "🫁",
-            sunProtection = "Dekolteli kıyafet giyildiğinde göğüs bölgesine mutlaka SPF 30+ uygulanmalıdır. Su geçirmez formüller havuz ve deniz aktiviteleri için idealdir. Plajda güneşlenirken her 2 saatte bir yenileyin. Halter üstü ve bikinilerin açıkta bıraktığı bölgelere dikkat edin.",
-            dailyCare = "Göğüs derisi ince ve hassastır. Kollajen üretimini destekleyen C vitamini ve peptit içeren kremler kullanın. Nemlendiriciye ek olarak bir yağ (argan, jojoba) uygulayabilirsiniz. Sütyen kayışlarının sürtünme yaratabileceği bölgeleri kontrol edin.",
-            selfExam = "Her ay duş sonrası göğüs bölgesini inceleyin. Memeler dahil tüm göğüs cildini kontrol edin. Meme başı veya areola çevresindeki lezyon değişimlerini not alın. Göğüs üstü ve sternum (göğüs kemiği) bölgesini de kontrol edin.",
-            lifestyle = "Sigara cilt elastikiyetini azaltır ve kanser riskini artırır. Sağlıklı kiloda kalmak cilt sağlığını destekler. Hamilelik ve emzirme döneminde cilt değişimleri olabilir, şüpheli lezyonları dermatologa gösterin.",
-            whenToSeeDoctor = "Göğüste yeni çıkan veya değişen ben, iyileşmeyen yara veya egzama benzeri leke, meme başı akıntısı veya içe çöküklük varsa mutlaka doktora gidin. Kadınlarda aylık kendi kendine meme muayenesi önerilir."
-        ),
-        "Kol / Ön kol" to RegionDetail(
+        "Kol / On kol" to RegionDetail(
             icon = "💪",
-            sunProtection = "Kollar yoğun UV maruziyetine açıktır. Araba sürerken direksiyona yakın kol pencereden gelen UV alır — bu nedenle araç içinde de SPF uygulayın. Uzun kollu UV koruyucu (UPF 50+) giysiler güneş koruyucuya pratik bir alternatiftir. Kol dışı yüzeyi (güneşe bakan taraf) daha fazla risk altındadır.",
-            dailyCare = "Kollarınızı düzenli olarak nemlendirin, özellikle dirsek bölgesi kuru ve pullu olabilir. Hafif eksfoliyasyon (haftada 1-2 kez) eski hücreleri uzaklaştırır. Tıraş veya lazer epilasyon sonrası cildi sakinleştirici ürünler kullanın.",
-            selfExam = "Her iki kolu da iç ve dış yüzden kontrol edin. Dirsek kıvrımlarını ve iç kolu (güneşe az maruz kalan bölgeler dahil) inceleyin. Kol altı lenf bezleri bölgesini de kontrol edin.",
-            lifestyle = "Kısa kollu spor yaparken (koşu, bisiklet) kolları güneş koruyucu ile koruyun. Su sporlarında su geçirmez SPF kullanın. Tarım veya dış mekan çalışmalarında uzun kollu giysi tercih edin.",
-            whenToSeeDoctor = "Kolda hızla büyüyen, renk değiştiren veya kaşınan lezyon, iyileşmeyen yara ya da 6 haftadan uzun süren şikayetler varsa dermatologa başvurun."
+            sunProtection = "Kollar yogun UV maruziyetine aciktir. Araba surerken de SPF uygulayın. Uzun kollu UV koruyucu (UPF 50+) giysiler iyi bir alternatiftir.",
+            dailyCare = "Kollarinizi duzenli olarak nemlendirin. Hafif eksfoliyasyon eski hucreleri uzaklastirir.",
+            selfExam = "Her iki kolu da ic ve dis yuzden kontrol edin. Dirsek kivrimlarini ve ic kolu inceleyin.",
+            lifestyle = "Kisa kollu spor yaparken kolları guneş koruyucu ile koruyun. Su sporlarinda su gecirmez SPF kullanin.",
+            whenToSeeDoctor = "Kolda hizla buyuyen, renk degistiren veya kasınan lezyon varsa dermatologa basvurun."
         ),
         "El / Bilek" to RegionDetail(
             icon = "🤚",
-            sunProtection = "El arkası çok yüksek UV maruziyeti alır ve bu bölgede yaşlanma belirtileri erken görünür. El yıkamadan sonra güneş koruyucuyu yenileyin. Koruyucu eldivenler hem UV hem de kimyasal maruziyete karşı koruma sağlar. SPF içeren el kremi hem nemlendirici hem koruyucu olarak kullanılabilir.",
-            dailyCare = "Elleri sık sık yıkamak cildi kurutur — her yıkamadan sonra nemlendirici kullanın. Üre içeren kremler el derisi için oldukça etkilidir. Bulaşık yıkarken eldiven giyin. Tırnak çevresini nemli tutmak çatlama ve enfeksiyonları önler.",
-            selfExam = "El sırtını, avucu ve her parmağı dikkatlice kontrol edin. Tırnak altını ve tırnak yatağını da inceleyin — melanom bazen tırnak altında görülür. Tırnaklarda koyu çizgi veya renk değişimi varsa mutlaka kontrol ettirin.",
-            lifestyle = "Bahçe işi ve el işi için koruyucu eldiven kullanın. Kimyasal temizlik ürünlerine elleri maruz bırakmayın. Soğuk havalarda kalın eldiven kullanmak el cildini korur.",
-            whenToSeeDoctor = "Tırnak altında koyu çizgi veya renk değişimi, el sırtında büyüyen asimetrik lezyon, uzun süredir iyileşmeyen yara varsa dermatologa gidin. Tırnak melanomunun erken belirtileri tırnak altında başlar."
+            sunProtection = "El arkası cok yuksek UV maruziyeti alır. El yikamadan sonra guneş koruyucuyu yenileyin. SPF iceren el kremi hem nemlendirici hem koruyucu olarak kullanilabilir.",
+            dailyCare = "Elleri sik sik yikamak cildi kurutur — her yikamadan sonra nemlendirici kullanin. Bulaşik yikarken eldiven giyin.",
+            selfExam = "El sirtini, avucu ve her parmagi dikkatlice kontrol edin. Tirnak altini da inceleyin — melanom bazen tirnak altinda gorulur.",
+            lifestyle = "Bahce isi ve el isi icin koruyucu eldiven kullanin. Kimyasal temizlik urunlerine elleri maruz birakmayin.",
+            whenToSeeDoctor = "Tirnak altinda koyu cizgi veya renk degisimi, el sirtinda buyuyen asimetrik lezyon varsa dermatologa gidin."
         ),
-        "Sırt" to RegionDetail(
-            icon = "🔙",
-            sunProtection = "Sırt bölgesi kendinizin ulaşamadığı yerdir ve yardım almanız gerekir. Sırt için özel püskürtmeli SPF ürünler pratik bir çözümdür. Yüzme, spor veya plajda mutlaka sırtınızı da koruyun. Sörf ve yüzme mayolarının kapattığı alanlara dikkat edin.",
-            dailyCare = "Sırtınıza losyon veya nemlendirici uygulamak için uzun saplı fırça veya aplikatör kullanın. Akne veya sivilce eğilimi varsa salisilik asit içeren ürünler kullanılabilir. Duş sonrası sırtı nazikçe ve tamamen kurulayın.",
-            selfExam = "Sırtı kendi başınıza kontrol etmek zordur. Bir partnerin sırtınızı düzenli olarak incelemesini isteyin veya iki ayna kullanın. Sırt melanomları geç fark edildiği için en tehlikeli grupta yer alır. Yılda en az bir kez dermatoloji muayenesi şiddetle önerilir.",
-            lifestyle = "Spor yaparken ter tutan kıyafetler sırtta mantar enfeksiyonuna yol açabilir — hızlı kuruyan kumaşlar tercih edin. Sırt çantası kullanıyorsanız sırtı sık sık havalandırın.",
-            whenToSeeDoctor = "Sırtı düzenli olarak kendinizin kontrol etmesi zor olduğundan yılda bir kez dermatolog tarafından incelenmesi önerilir. Partner tarafından fark edilen her yeni veya değişen lezyon için randevu alın."
-        ),
-        "Karın" to RegionDetail(
-            icon = "🫃",
-            sunProtection = "Karın bölgesi genellikle giysiyle örtülüdür. Ancak yaz aylarında plaj, havuz ve tatilde açık kalır. Bu dönemlerde su geçirmez SPF 50+ kullanın ve her 2 saatte bir yenileyin. Karın derisinin ince ve hassas olduğunu unutmayın.",
-            dailyCare = "Karın bölgesini nemlendirmek, özellikle hamilelik döneminde çatlak izlerini önlemeye yardımcı olabilir. C vitamini ve hyalüronik asit içeren serumlar cilt elastikiyetini destekler. Çatlak iziyle mücadelede argan yağı veya shea butter etkili olabilir.",
-            selfExam = "Karın bölgesini ayna önünde inceleyin. Göbek çevresini ve katlantı bölgelerini kontrol edin. Karın derisi katlantılarında mantar enfeksiyonu veya cilt tahrişi olabilir.",
-            lifestyle = "Sağlıklı kiloda kalmak karın derisi sağlığı için önemlidir. Kilo değişimleri cilt elastikiyetini etkileyebilir. Sıkı kıyafetler uzun süre giyildiğinde cilt tahrişine yol açabilir.",
-            whenToSeeDoctor = "Karında uzun süredir iyileşmeyen yara, büyüyen lezyon veya katlantı bölgesinde tekrarlayan enfeksiyon varsa doktora başvurun."
+        "Sirt" to RegionDetail(
+            icon = "🫙",
+            sunProtection = "Sirt bolgesi kendinizin ulasamadiği yerdir. Sirt icin ozel puskurtmeli SPF urunler pratik bir cozumdur.",
+            dailyCare = "Sirtiniza losyon veya nemlendirici uygulamak icin uzun sapli fırca kullanin.",
+            selfExam = "Sirtı kendi basiniza kontrol etmek zordur. Bir partnerin sirtinizi duzenli olarak incelemesini isteyin veya iki ayna kullanin.",
+            lifestyle = "Spor yaparken ter tutan kiyafetler sirtta mantar enfeksiyonuna yol acabilir.",
+            whenToSeeDoctor = "Sirtı duzenli olarak kendinizin kontrol etmesi zor oldugundan yilda bir kez dermatolog tarafindan incelenmesi onerilir."
         ),
         "Bacak" to RegionDetail(
             icon = "🦵",
-            sunProtection = "Etek, şort veya mayo giyildiğinde bacaklar direkt UV alır. SPF 30+ kullanın ve özellikle diz altı ve baldır bölgesine dikkat edin. Güneş altında uzanırken bacakları unutmayın. Güneşten korumalı tayt ve çoraplar da etkili alternatiflerdir.",
-            dailyCare = "Tıraş veya ağda sonrası cilt hassaslaşır — nazik nemlendirici kullanın. Bacak cildi çabuk kuruyabilir, özellikle kış aylarında yoğun nemlendirici şarttır. Hafif eksfoliyasyon (haftada 1) pürüzsüz cilt için önerilir. Uyluğun iç yüzünde sürtünme iltihabına karşı vücut pudrası veya anti-friction ürün kullanın.",
-            selfExam = "Her iki bacağın ön, arka ve yan yüzlerini kontrol edin. Diz arkası ve kasık bölgesini de inceleyin — bu alanlar gözden kaçabilir. Bacaklarda çok sayıda ben varsa bunları takip edin. Yavaş büyüyen veya renk değiştiren lezyonlara dikkat edin.",
-            lifestyle = "Uzun süre ayakta durma veya oturma bacak dolaşımını olumsuz etkileyebilir. Egzersiz ve bacakları yükseltmek kan dolaşımını iyileştirir. Varisi olanlar için kompresyon çorapları önerilir.",
-            whenToSeeDoctor = "Bacakta yeni çıkan asimetrik leke, hızlı büyüyen ben, kaşınan veya kanayan lezyon varsa dermatologa gidin. Özellikle kadınlarda diz altı melanomlar geç fark edilebilir."
+            sunProtection = "Etek, sort veya mayo giyildiginde bacaklar direkt UV alir. SPF 30+ kullanin ve ozellikle diz alti ve baldir bolgesine dikkat edin.",
+            dailyCare = "Tirash veya agda sonrasi cilt hassaslasir — nazik nemlendirici kullanin. Hafif eksfoliyasyon pürüzsüz cilt icin onerilir.",
+            selfExam = "Her iki bacagin on, arka ve yan yuzlerini kontrol edin. Diz arkasi ve kasik bolgesini de inceleyin.",
+            lifestyle = "Uzun sure ayakta durma veya oturma bacak dolasimini olumsuz etkiler. Egzersiz kan dolasimini iyilestirir.",
+            whenToSeeDoctor = "Bacakta yeni cikan asimetrik leke, hizla buyuyen ben varsa dermatologa gidin."
         ),
         "Ayak" to RegionDetail(
             icon = "🦶",
-            sunProtection = "Ayak tabanı ve parmak aralarındaki lezyonlar çok nadir görülse de en tehlikeli melanom türü olan akral lentiginöz melanom bu bölgede gelişir. Plajda yürürken bile ayaklara SPF uygulayın. Kum üzerindeki UV yansıması beklenenden çok daha fazladır.",
-            dailyCare = "Ayakları her gün sıcak suyla yıkayın ve özellikle parmak aralarını iyice kurulayın. Ayak tabanı ve topuklara yoğun nemlendirici veya çatlak kremi uygulayın. Tırnakları düzgün (düz) kesin. Nefes alabilen ayakkabı ve çorap tercih edin. Mantar enfeksiyonuna karşı kuru tutmak önemlidir.",
-            selfExam = "Ayak tabanını düzenli olarak kontrol edin — bunu yapmak için el aynası kullanabilirsiniz. Tırnak altı ve tırnak yatağını inceleyin. Parmak aralarını ve topukları kontrol edin. Koyu kahverengi veya siyah çizgiler tırnak altında ciddi uyarı işaretidir.",
-            lifestyle = "Kamuya açık alanlarda (havuz, sauna, spor salonu) mantar enfeksiyonunu önlemek için terlik kullanın. Dar ve sıkı ayakkabılar uzun süre giyilmemeli. Diabetik hastalar ayaklarını her gün kontrol etmelidir.",
-            whenToSeeDoctor = "Tırnak altında koyu çizgi veya leke, ayak tabanında büyüyen asimetrik lezyon, iyileşmeyen yara veya siğil benzeri oluşum varsa mutlaka dermatologa gidin. Acral melanom geç tanındığında çok tehlikelidir."
+            sunProtection = "Plajda yururken bile ayaklara SPF uygulayin. Kum uzerindeki UV yansimasi beklenenden cok daha fazladir.",
+            dailyCare = "Ayaklari her gun sicak suyla yikayin ve ozellikle parmak aralarin iyice kurulayın. Tirnaklari duzgun kesin.",
+            selfExam = "Ayak tabanını duzenli olarak kontrol edin. Tirnak altı ve tirnak yataginı inceleyin. Koyu kahverengi veya siyah cizgiler ciddı uyarı isaretidir.",
+            lifestyle = "Kamuya acik alanlarda mantar enfeksiyonunu onlemek icin terlik kullanin.",
+            whenToSeeDoctor = "Tirnak altinda koyu cizgi, ayak tabaninda buyuyen asimetrik lezyon varsa mutlaka dermatologa gidin."
         )
     )
 
     private val regionList = listOf(
-        "Baş / Yüz", "Boyun", "Göğüs", "Kol / Ön kol",
-        "El / Bilek", "Sırt", "Karın", "Bacak", "Ayak"
+        "Bas / Yuz / Boyun", "Gogus", "Kol / On kol",
+        "El / Bilek", "Sirt", "Bacak", "Ayak"
     )
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -111,26 +94,26 @@ class InfoBottomSheet : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val spinnerRegion  = view.findViewById<Spinner>(R.id.spinnerRegion)
-        val btnGetInfo     = view.findViewById<Button>(R.id.btnGetInfo)
-        val btnDerma       = view.findViewById<Button>(R.id.btnDerma)
-        val btnHospital    = view.findViewById<Button>(R.id.btnHospital)
-        val infoContainer  = view.findViewById<LinearLayout>(R.id.infoContainer)
-        val tvUrgency      = view.findViewById<TextView>(R.id.tvUrgency)
-        val diagnosis      = arguments?.getString("diagnosis") ?: ""
-        val defaultRegion  = arguments?.getString("region") ?: regionList[0]
+        val spinnerRegion = view.findViewById<Spinner>(R.id.spinnerRegion)
+        val btnGetInfo    = view.findViewById<Button>(R.id.btnGetInfo)
+        val btnDerma      = view.findViewById<Button>(R.id.btnDerma)
+        val btnHospital   = view.findViewById<Button>(R.id.btnHospital)
+        val infoContainer = view.findViewById<LinearLayout>(R.id.infoContainer)
+        val tvUrgency     = view.findViewById<TextView>(R.id.tvUrgency)
+        val diagnosis     = arguments?.getString("diagnosis") ?: ""
+        val defaultRegion = arguments?.getString("region") ?: regionList[0]
 
-        // Teşhis bilgisi başlık olarak göster
-        tvUrgency.text = "📊 Tarama Sonucu: $diagnosis"
-        tvUrgency.setTextColor(Color.parseColor("#C9A84C"))
+        tvUrgency.text = "Tarama Sonucu: $diagnosis"
+        tvUrgency.setTextColor(Color.parseColor("#E8823A"))
 
         val regionAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, regionList)
         regionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerRegion.adapter = regionAdapter
-        spinnerRegion.setSelection(regionList.indexOf(defaultRegion).coerceAtLeast(0))
 
-        // İlk açılışta otomatik göster
-        showRegionInfo(defaultRegion, infoContainer, btnDerma, btnHospital)
+        val matchedRegion = regionList.firstOrNull { it.contains(defaultRegion.take(4)) } ?: regionList[0]
+        spinnerRegion.setSelection(regionList.indexOf(matchedRegion).coerceAtLeast(0))
+
+        showRegionInfo(matchedRegion, infoContainer, btnDerma, btnHospital)
 
         btnGetInfo.setOnClickListener {
             val region = spinnerRegion.selectedItem.toString()
@@ -147,37 +130,36 @@ class InfoBottomSheet : BottomSheetDialogFragment() {
         container.removeAllViews()
         val detail = regionDetails[region] ?: return
 
-        addCard(container, "☀️ Güneş Koruması", detail.sunProtection, "#FFD700")
-        addCard(container, "🧴 Günlük Bakım", detail.dailyCare, "#C9A84C")
-        addCard(container, "🔍 Nasıl Kontrol Edilir?", detail.selfExam, "#7B9AC9")
-        addCard(container, "🏃 Yaşam Tarzı Önerileri", detail.lifestyle, "#AA88FF")
-        addCard(container, "🏥 Ne Zaman Doktora Gidilmeli?", detail.whenToSeeDoctor, "#FF6B6B")
+        addCard(container, "Gunes Korumasi",          detail.sunProtection,    "#E8823A")
+        addCard(container, "Gunluk Bakim",             detail.dailyCare,        "#C4963A")
+        addCard(container, "Nasil Kontrol Edilir?",   detail.selfExam,         "#7A9EC4")
+        addCard(container, "Yasam Tarzi Onerileri",   detail.lifestyle,        "#8A7AC4")
+        addCard(container, "Ne Zaman Doktora Gidilmeli?", detail.whenToSeeDoctor, "#C05050")
 
-        // Uyarı kartı
         val dp = resources.displayMetrics.density
         val warnCard = androidx.cardview.widget.CardView(requireContext()).apply {
             radius = 12f * dp; cardElevation = 0f
-            setCardBackgroundColor(Color.parseColor("#1A1225"))
+            setCardBackgroundColor(Color.parseColor("#FFF3E0"))
             val lp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
             lp.bottomMargin = (8*dp).toInt(); layoutParams = lp
         }
         val warnTv = TextView(requireContext()).apply {
-            text = "⚕️  Bu bilgiler genel sağlık rehberi niteliğindedir. Tanı ve tedavi için mutlaka bir dermatologa başvurun."
-            textSize = 11f; setTextColor(Color.parseColor("#7B7B9A"))
+            text = "Bu bilgiler genel saglik rehberi niteligindedir. Tani ve tedavi icin mutlaka bir dermatologa basvurun."
+            textSize = 11f; setTextColor(Color.parseColor("#7A6E65"))
             setPadding((12*dp).toInt(), (10*dp).toInt(), (12*dp).toInt(), (10*dp).toInt())
             setLineSpacing(0f, 1.3f)
         }
         warnCard.addView(warnTv); container.addView(warnCard)
 
-        btnDerma.setOnClickListener { openMaps("dermatoloji kliniği") }
+        btnDerma.setOnClickListener { openMaps("dermatoloji klinigi") }
         btnHospital.setOnClickListener { openMaps("hastane dermatoloji") }
     }
 
     private fun addCard(container: LinearLayout, title: String, content: String, color: String) {
         val dp = resources.displayMetrics.density
         val card = androidx.cardview.widget.CardView(requireContext()).apply {
-            radius = 14f * dp; cardElevation = 3f
-            setCardBackgroundColor(Color.parseColor("#1A1A32"))
+            radius = 14f * dp; cardElevation = 2f
+            setCardBackgroundColor(Color.parseColor("#FFFFFF"))
             val lp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
             lp.bottomMargin = (10*dp).toInt(); layoutParams = lp
         }
@@ -197,7 +179,7 @@ class InfoBottomSheet : BottomSheetDialogFragment() {
         }
         val tvContent = TextView(requireContext()).apply {
             text = content; textSize = 13f
-            setTextColor(Color.parseColor("#CCCCDD"))
+            setTextColor(Color.parseColor("#2C2318"))
             setLineSpacing(0f, 1.4f)
         }
         inner.addView(stripe); inner.addView(tvTitle); inner.addView(tvContent)

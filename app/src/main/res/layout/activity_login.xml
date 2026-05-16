@@ -89,7 +89,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cilt sagligi analizi"
+                    android:text="Cilt Sağlığı Analizi"
                     android:textSize="13sp"
                     android:textColor="#B5A898"
                     android:layout_gravity="center"/>
@@ -108,9 +108,9 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Giris Yap"
+                    android:text="Giriş Yap"
                     android:textSize="14sp"
-                    android:textColor="#F5A623"
+                    android:textColor="#B85C2A"
                     android:textStyle="bold"
                     android:gravity="center"
                     android:background="@drawable/tab_active_light"/>
@@ -120,7 +120,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Kayit Ol"
+                    android:text="Kayıt Ol"
                     android:textSize="14sp"
                     android:textColor="#7A6E65"
                     android:gravity="center"/>
@@ -207,9 +207,9 @@
                 android:id="@+id/tvForgot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sifremi unuttum"
+                android:text="Şifremi unuttum"
                 android:textSize="12sp"
-                android:textColor="#E8823A"
+                android:textColor="#B85C2A"
                 android:layout_gravity="end"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
@@ -242,11 +242,11 @@
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:text="Giris Yap"
+                android:text="Giriş Yap"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:textSize="15sp"
-                android:backgroundTint="#F5A623"
+                android:backgroundTint="#F4A574"
                 app:cornerRadius="14dp"
                 android:layout_marginBottom="16dp"/>
 
@@ -306,16 +306,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hesabin yok mu? "
+                    android:text="Hesabın yok mu? "
                     android:textSize="13sp"
                     android:textColor="#7A6E65"/>
                 <TextView
                     android:id="@+id/btnRegister"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kayit ol"
+                    android:text="Kayıt ol"
                     android:textSize="13sp"
-                    android:textColor="#E8823A"
+                    android:textColor="#B85C2A"
                     android:textStyle="bold"/>
             </LinearLayout>
 

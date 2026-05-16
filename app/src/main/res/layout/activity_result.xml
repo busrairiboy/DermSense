@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_bg">
+    android:background="#FAF7F2">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:text="Analiz Sonucu"
                 android:textSize="26sp"
-                android:textColor="#FFFFFF"
+                android:textColor="#2C2318"
                 android:textStyle="bold"
                 android:paddingTop="48dp"
                 android:layout_marginBottom="6dp"/>
@@ -38,15 +38,15 @@
                 android:layout_height="wrap_content"
                 android:text="📍 Belirtilmedi"
                 android:textSize="13sp"
-                android:textColor="#7B7B9A"
+                android:textColor="#B5A898"
                 android:layout_marginBottom="20dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ORİJİNAL GÖRÜNTÜ"
+                android:text="ORIJINAL GORUNTU"
                 android:textSize="11sp"
-                android:textColor="#7B7B9A"
+                android:textColor="#B5A898"
                 android:letterSpacing="0.12"
                 android:layout_marginBottom="8dp"/>
 
@@ -55,15 +55,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
-                android:background="#1A1A32"
+                android:background="@drawable/input_bg_light"
                 android:layout_marginBottom="16dp"/>
 
+            <!-- Grad-CAM -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#1A1A32"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="4dp"
+                app:cardElevation="2dp"
                 android:layout_marginBottom="16dp">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -80,18 +81,18 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="GRAD-CAM ISI HARİTASI"
+                            android:text="GRAD-CAM ISI HARITASI"
                             android:textSize="11sp"
-                            android:textColor="#7B7B9A"
+                            android:textColor="#B5A898"
                             android:letterSpacing="0.12"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="XAI"
                             android:textSize="10sp"
-                            android:textColor="#C9A84C"
+                            android:textColor="#E8823A"
                             android:textStyle="bold"
-                            android:background="@drawable/badge_orange"
+                            android:background="@drawable/badge_orange_light"
                             android:paddingStart="8dp"
                             android:paddingEnd="8dp"
                             android:paddingTop="4dp"
@@ -102,7 +103,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
                         android:scaleType="centerCrop"
-                        android:background="#12122A"
+                        android:background="@drawable/input_bg_light"
                         android:layout_marginBottom="10dp"/>
                     <TextView
                         android:id="@+id/tvGradCamDesc"
@@ -110,23 +111,23 @@
                         android:layout_height="wrap_content"
                         android:text="Analiz ediliyor..."
                         android:textSize="12sp"
-                        android:textColor="#7B7B9A"
+                        android:textColor="#B5A898"
                         android:lineSpacingMultiplier="1.4"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Teşhis kartı -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#00000000"
+                app:cardBackgroundColor="#D17F52"
                 app:cardCornerRadius="24dp"
-                app:cardElevation="12dp"
+                app:cardElevation="4dp"
                 android:layout_marginBottom="16dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:background="@drawable/scan_card_gradient"
                     android:padding="20dp">
                     <TextView
                         android:id="@+id/tvDiagnosis"
@@ -151,9 +152,9 @@
                         android:id="@+id/tvConfidence"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Model Güveni: -%"
+                        android:text="Model Guveni: -%"
                         android:textSize="13sp"
-                        android:textColor="#CCCCDD"
+                        android:textColor="#FFF5E6"
                         android:gravity="center"
                         android:layout_marginBottom="8dp"/>
                     <ProgressBar
@@ -163,35 +164,33 @@
                         android:layout_height="10dp"
                         android:max="100"
                         android:progress="0"
-                        android:progressTint="#C9A84C"
+                        android:progressTint="#FFFFFF"
                         android:progressBackgroundTint="#33FFFFFF"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- ABCDE -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ABCDE ANALİZİ"
+                android:text="ABCDE ANALIZI"
                 android:textSize="11sp"
-                android:textColor="#7B7B9A"
+                android:textColor="#B5A898"
                 android:letterSpacing="0.15"
                 android:layout_marginBottom="10dp"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="8dp">
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp" android:layout_height="wrap_content"
                     android:layout_weight="1" android:layout_marginEnd="6dp"
-                    app:cardBackgroundColor="#1A1A32" app:cardCornerRadius="16dp" app:cardElevation="4dp">
+                    app:cardBackgroundColor="#FFFFFF" app:cardCornerRadius="16dp" app:cardElevation="2dp">
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                         android:orientation="vertical" android:padding="14dp">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="A  Asimetri" android:textColor="#C9A84C" android:textStyle="bold" android:textSize="13sp"/>
+                            android:text="A  Asimetri" android:textColor="#B85C2A" android:textStyle="bold" android:textSize="13sp"/>
                         <TextView android:id="@+id/tvA" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="---" android:textColor="#CCCCCC" android:textSize="12sp" android:layout_marginTop="5dp"/>
+                            android:text="---" android:textColor="#7A6E65" android:textSize="12sp" android:layout_marginTop="5dp"/>
                         <TextView android:id="@+id/tvAStatus" android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:text="---" android:textSize="12sp" android:textStyle="bold" android:layout_marginTop="5dp"/>
                     </LinearLayout>
@@ -199,34 +198,31 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp" android:layout_height="wrap_content"
                     android:layout_weight="1" android:layout_marginStart="6dp"
-                    app:cardBackgroundColor="#1A1A32" app:cardCornerRadius="16dp" app:cardElevation="4dp">
+                    app:cardBackgroundColor="#FFFFFF" app:cardCornerRadius="16dp" app:cardElevation="2dp">
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                         android:orientation="vertical" android:padding="14dp">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="B  Border" android:textColor="#C9A84C" android:textStyle="bold" android:textSize="13sp"/>
+                            android:text="B  Border" android:textColor="#B85C2A" android:textStyle="bold" android:textSize="13sp"/>
                         <TextView android:id="@+id/tvB" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="---" android:textColor="#CCCCCC" android:textSize="12sp" android:layout_marginTop="5dp"/>
+                            android:text="---" android:textColor="#7A6E65" android:textSize="12sp" android:layout_marginTop="5dp"/>
                         <TextView android:id="@+id/tvBStatus" android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:text="---" android:textSize="12sp" android:textStyle="bold" android:layout_marginTop="5dp"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="20dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="20dp">
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp" android:layout_height="wrap_content"
                     android:layout_weight="1" android:layout_marginEnd="6dp"
-                    app:cardBackgroundColor="#1A1A32" app:cardCornerRadius="16dp" app:cardElevation="4dp">
+                    app:cardBackgroundColor="#FFFFFF" app:cardCornerRadius="16dp" app:cardElevation="2dp">
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                         android:orientation="vertical" android:padding="14dp">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="C  Color" android:textColor="#C9A84C" android:textStyle="bold" android:textSize="13sp"/>
+                            android:text="C  Color" android:textColor="#B85C2A" android:textStyle="bold" android:textSize="13sp"/>
                         <TextView android:id="@+id/tvC" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="---" android:textColor="#CCCCCC" android:textSize="12sp" android:layout_marginTop="5dp"/>
+                            android:text="---" android:textColor="#7A6E65" android:textSize="12sp" android:layout_marginTop="5dp"/>
                         <TextView android:id="@+id/tvCStatus" android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:text="---" android:textSize="12sp" android:textStyle="bold" android:layout_marginTop="5dp"/>
                     </LinearLayout>
@@ -234,13 +230,13 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp" android:layout_height="wrap_content"
                     android:layout_weight="1" android:layout_marginStart="6dp"
-                    app:cardBackgroundColor="#1A1A32" app:cardCornerRadius="16dp" app:cardElevation="4dp">
+                    app:cardBackgroundColor="#FFFFFF" app:cardCornerRadius="16dp" app:cardElevation="2dp">
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                         android:orientation="vertical" android:padding="14dp">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="D  Diameter" android:textColor="#C9A84C" android:textStyle="bold" android:textSize="13sp"/>
+                            android:text="D  Diameter" android:textColor="#B85C2A" android:textStyle="bold" android:textSize="13sp"/>
                         <TextView android:id="@+id/tvD" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="---" android:textColor="#CCCCCC" android:textSize="12sp" android:layout_marginTop="5dp"/>
+                            android:text="---" android:textColor="#7A6E65" android:textSize="12sp" android:layout_marginTop="5dp"/>
                         <TextView android:id="@+id/tvDStatus" android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:text="---" android:textSize="12sp" android:textStyle="bold" android:layout_marginTop="5dp"/>
                     </LinearLayout>
@@ -251,22 +247,22 @@
                 android:id="@+id/btnInfo"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:text="💡 Bilgi ve Öneriler"
-                android:textColor="#1A1035"
+                android:text="Bilgi ve Oneriler"
+                android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:textSize="15sp"
-                android:backgroundTint="#C9A84C"
+                android:backgroundTint="#F4A574"
                 app:cornerRadius="16dp"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="12dp"/>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent" android:layout_height="wrap_content"
-                app:cardBackgroundColor="#1A1225" app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="#FFF3E0" app:cardCornerRadius="16dp"
                 app:cardElevation="0dp" android:layout_marginBottom="16dp">
                 <TextView
                     android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="ℹ️  Bu uygulama bir araştırma prototipidir. Tıbbi teşhis için lütfen bir dermatologa başvurun."
-                    android:textSize="12sp" android:textColor="#7B7B9A"
+                    android:text="Bu uygulama bir arastirma prototipidir. Tibbi teshis icin lutfen bir dermatologa basvurun."
+                    android:textSize="12sp" android:textColor="#7A6E65"
                     android:padding="14dp" android:lineSpacingMultiplier="1.4"/>
             </androidx.cardview.widget.CardView>
 
@@ -277,9 +273,9 @@
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#15152E"
-        app:itemIconTint="#C9A84C"
-        app:itemTextColor="#C9A84C"
+        android:background="#FFFFFF"
+        app:itemIconTint="#F5A623"
+        app:itemTextColor="#F5A623"
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

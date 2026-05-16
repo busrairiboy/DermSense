@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_bg">
+    android:background="#FAF7F2">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -22,67 +22,57 @@
             android:paddingEnd="20dp"
             android:paddingBottom="40dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ayarlar"
-                android:textSize="26sp"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:paddingTop="48dp"
-                android:layout_marginBottom="24dp"/>
-
-            <!-- HESAP BİLGİLERİ -->
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="HESAP BİLGİLERİ" android:textSize="11sp"
-                android:textColor="#7B7B9A" android:letterSpacing="0.15"
-                android:layout_marginBottom="8dp"/>
+                android:text="Ayarlar" android:textSize="26sp" android:textColor="#2C2318"
+                android:textStyle="bold" android:paddingTop="48dp" android:layout_marginBottom="24dp"/>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                app:cardBackgroundColor="#1A1A32" app:cardCornerRadius="16dp"
-                app:cardElevation="0dp" android:layout_marginBottom="20dp">
+            <!-- HESAP -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="HESAP BILGILERI" android:textSize="11sp"
+                android:textColor="#B5A898" android:letterSpacing="0.15" android:layout_marginBottom="8dp"/>
+
+            <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardBackgroundColor="#FFFFFF" app:cardCornerRadius="16dp"
+                app:cardElevation="2dp" android:layout_marginBottom="20dp">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Ad Soyad -->
                     <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="16dp" android:paddingEnd="16dp">
                         <TextView android:layout_width="32dp" android:layout_height="32dp"
                             android:text="👤" android:textSize="16sp" android:gravity="center"
-                            android:background="@drawable/circle_dark"/>
+                            android:background="@drawable/circle_orange_light"/>
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                android:text="Ad Soyad" android:textSize="11sp" android:textColor="#7B7B9A"/>
+                                android:text="Ad Soyad" android:textSize="11sp" android:textColor="#B5A898"/>
                             <EditText android:id="@+id/etName"
                                 android:layout_width="match_parent" android:layout_height="wrap_content"
-                                android:textSize="13sp" android:textColor="#FFFFFF"
+                                android:textSize="13sp" android:textColor="#2C2318"
                                 android:background="@null" android:padding="0dp"
                                 android:inputType="textPersonName"/>
                         </LinearLayout>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="›" android:textSize="20sp" android:textColor="#555577"/>
+                            android:text="›" android:textSize="20sp" android:textColor="#C8BDB1"/>
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp"
-                        android:background="#12122A" android:layout_marginStart="62dp"/>
+                        android:background="#E8E0D5" android:layout_marginStart="62dp"/>
 
-                    <!-- E-posta (görüntüleme) -->
                     <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="16dp" android:paddingEnd="16dp">
                         <TextView android:layout_width="32dp" android:layout_height="32dp"
                             android:text="📧" android:textSize="16sp" android:gravity="center"
-                            android:background="@drawable/circle_dark"/>
+                            android:background="@drawable/circle_orange_light"/>
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                android:text="E-posta" android:textSize="11sp" android:textColor="#7B7B9A"/>
+                                android:text="E-posta" android:textSize="11sp" android:textColor="#B5A898"/>
                             <EditText android:id="@+id/etEmail"
                                 android:layout_width="match_parent" android:layout_height="wrap_content"
-                                android:textSize="13sp" android:textColor="#FFFFFF"
+                                android:textSize="13sp" android:textColor="#2C2318"
                                 android:background="@null" android:padding="0dp"
                                 android:inputType="textEmailAddress"
                                 android:focusable="false" android:clickable="false"/>
@@ -90,9 +80,8 @@
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp"
-                        android:background="#12122A" android:layout_marginStart="62dp"/>
+                        android:background="#E8E0D5" android:layout_marginStart="62dp"/>
 
-                    <!-- E-posta değiştir -->
                     <LinearLayout android:id="@+id/rowChangeEmail"
                         android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
@@ -100,54 +89,52 @@
                         android:background="?attr/selectableItemBackground">
                         <TextView android:layout_width="32dp" android:layout_height="32dp"
                             android:text="✉️" android:textSize="16sp" android:gravity="center"
-                            android:background="@drawable/circle_dark"/>
+                            android:background="@drawable/circle_orange_light"/>
                         <TextView android:id="@+id/btnChangeEmail"
                             android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="E-posta Değiştir"
-                            android:textSize="13sp" android:textColor="#FFFFFF"
+                            android:layout_weight="1" android:text="E-posta Degistir"
+                            android:textSize="13sp" android:textColor="#2C2318"
                             android:layout_marginStart="14dp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="›" android:textSize="20sp" android:textColor="#555577"/>
+                            android:text="›" android:textSize="20sp" android:textColor="#C8BDB1"/>
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp"
-                        android:background="#12122A" android:layout_marginStart="62dp"/>
+                        android:background="#E8E0D5" android:layout_marginStart="62dp"/>
 
-                    <!-- Yaş -->
                     <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="16dp" android:paddingEnd="16dp">
                         <TextView android:layout_width="32dp" android:layout_height="32dp"
                             android:text="🎂" android:textSize="16sp" android:gravity="center"
-                            android:background="@drawable/circle_dark"/>
+                            android:background="@drawable/circle_orange_light"/>
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                android:text="Yaş" android:textSize="11sp" android:textColor="#7B7B9A"/>
+                                android:text="Yas" android:textSize="11sp" android:textColor="#B5A898"/>
                             <EditText android:id="@+id/etAge"
                                 android:layout_width="match_parent" android:layout_height="wrap_content"
-                                android:textSize="13sp" android:textColor="#FFFFFF"
+                                android:textSize="13sp" android:textColor="#2C2318"
                                 android:background="@null" android:padding="0dp"
                                 android:inputType="number"/>
                         </LinearLayout>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="›" android:textSize="20sp" android:textColor="#555577"/>
+                            android:text="›" android:textSize="20sp" android:textColor="#C8BDB1"/>
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp"
-                        android:background="#12122A" android:layout_marginStart="62dp"/>
+                        android:background="#E8E0D5" android:layout_marginStart="62dp"/>
 
-                    <!-- Deri Tipi -->
                     <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="16dp" android:paddingEnd="16dp">
                         <TextView android:layout_width="32dp" android:layout_height="32dp"
                             android:text="🌡️" android:textSize="16sp" android:gravity="center"
-                            android:background="@drawable/circle_dark"/>
+                            android:background="@drawable/circle_orange_light"/>
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                android:text="Deri Tipi" android:textSize="11sp" android:textColor="#7B7B9A"/>
+                                android:text="Deri Tipi" android:textSize="11sp" android:textColor="#B5A898"/>
                             <Spinner android:id="@+id/spinnerSkinType"
                                 android:layout_width="match_parent" android:layout_height="wrap_content"
                                 android:background="@null"/>
@@ -155,52 +142,48 @@
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp"
-                        android:background="#12122A" android:layout_marginStart="62dp"/>
+                        android:background="#E8E0D5" android:layout_marginStart="62dp"/>
 
-                    <!-- Kaydet + Şifre yan yana -->
                     <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="16dp" android:paddingEnd="16dp">
                         <Button android:id="@+id/btnSaveProfile"
                             android:layout_width="0dp" android:layout_height="40dp"
                             android:layout_weight="1" android:layout_marginEnd="8dp"
-                            android:text="Kaydet" android:textColor="#1A1035" android:textStyle="bold"
-                            android:backgroundTint="#C9A84C" app:cornerRadius="10dp"/>
+                            android:text="Kaydet" android:textColor="#FFFFFF" android:textStyle="bold"
+                            android:backgroundTint="#C8926A" app:cornerRadius="10dp"/>
                         <Button android:id="@+id/btnChangePassword"
                             android:layout_width="0dp" android:layout_height="40dp"
                             android:layout_weight="1"
-                            android:text="Şifre Değiştir" android:textColor="#C9A84C"
-                            android:backgroundTint="#22224A" app:cornerRadius="10dp"/>
+                            android:text="Sifre Degistir" android:textColor="#E8823A"
+                            android:backgroundTint="#FFF3E0" app:cornerRadius="10dp"/>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <!-- BİLDİRİMLER -->
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="BİLDİRİMLER" android:textSize="11sp"
-                android:textColor="#7B7B9A" android:letterSpacing="0.15"
-                android:layout_marginBottom="8dp"/>
+                android:text="BILDIRIMLER" android:textSize="11sp"
+                android:textColor="#B5A898" android:letterSpacing="0.15" android:layout_marginBottom="8dp"/>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                app:cardBackgroundColor="#1A1A32" app:cardCornerRadius="16dp"
-                app:cardElevation="0dp" android:layout_marginBottom="20dp">
+            <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardBackgroundColor="#FFFFFF" app:cardCornerRadius="16dp"
+                app:cardElevation="2dp" android:layout_marginBottom="20dp">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Tarama hatırlatıcısı -->
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="16dp" android:paddingEnd="16dp"
                         android:paddingTop="10dp" android:paddingBottom="10dp">
                         <TextView android:layout_width="32dp" android:layout_height="32dp"
                             android:text="⏰" android:textSize="16sp" android:gravity="center"
-                            android:background="@drawable/circle_dark"/>
+                            android:background="@drawable/circle_orange_light"/>
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                android:text="Tarama Hatırlatıcısı" android:textSize="13sp"
-                                android:textColor="#FFFFFF" android:textStyle="bold"/>
+                                android:text="Tarama Hatirlaticisi" android:textSize="13sp"
+                                android:textColor="#2C2318" android:textStyle="bold"/>
                             <Spinner android:id="@+id/spinnerReminder"
                                 android:layout_width="match_parent" android:layout_height="wrap_content"
                                 android:background="@null" android:layout_marginTop="2dp"/>
@@ -208,119 +191,112 @@
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp"
-                        android:background="#12122A" android:layout_marginStart="62dp"/>
+                        android:background="#E8E0D5" android:layout_marginStart="62dp"/>
 
-                    <!-- UV bildirimi -->
                     <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="16dp" android:paddingEnd="16dp">
                         <TextView android:layout_width="32dp" android:layout_height="32dp"
                             android:text="☀️" android:textSize="16sp" android:gravity="center"
-                            android:background="@drawable/circle_dark"/>
+                            android:background="@drawable/circle_orange_light"/>
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                android:text="UV Uyarısı" android:textSize="13sp"
-                                android:textColor="#FFFFFF" android:textStyle="bold"/>
+                                android:text="UV Uyarisi" android:textSize="13sp"
+                                android:textColor="#2C2318" android:textStyle="bold"/>
                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                android:text="UV yüksekken bildirim al" android:textSize="11sp"
-                                android:textColor="#7B7B9A"/>
+                                android:text="UV yuksekken bildirim al" android:textSize="11sp"
+                                android:textColor="#B5A898"/>
                         </LinearLayout>
                         <Switch android:id="@+id/switchUVNotification"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:thumbTint="#C9A84C" android:trackTint="#33C9A84C"/>
+                            android:thumbTint="#F5A623" android:trackTint="#33F5A623"/>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- GİZLİLİK VE VERİLER -->
+            <!-- GİZLİLİK -->
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="GİZLİLİK VE VERİLER" android:textSize="11sp"
-                android:textColor="#7B7B9A" android:letterSpacing="0.15"
-                android:layout_marginBottom="8dp"/>
+                android:text="GIZLILIK VE VERILER" android:textSize="11sp"
+                android:textColor="#B5A898" android:letterSpacing="0.15" android:layout_marginBottom="8dp"/>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                app:cardBackgroundColor="#1A1A32" app:cardCornerRadius="16dp"
-                app:cardElevation="0dp" android:layout_marginBottom="20dp">
+            <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardBackgroundColor="#FFFFFF" app:cardCornerRadius="16dp"
+                app:cardElevation="2dp" android:layout_marginBottom="20dp">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Dışa aktar -->
                     <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="16dp" android:paddingEnd="16dp"
                         android:background="?attr/selectableItemBackground">
                         <TextView android:layout_width="32dp" android:layout_height="32dp"
                             android:text="📤" android:textSize="16sp" android:gravity="center"
-                            android:background="@drawable/circle_dark"/>
+                            android:background="@drawable/circle_orange_light"/>
                         <TextView android:id="@+id/btnExportData"
                             android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="Taramaları Dışa Aktar"
-                            android:textSize="13sp" android:textColor="#FFFFFF"
+                            android:layout_weight="1" android:text="Taramalari Disa Aktar"
+                            android:textSize="13sp" android:textColor="#2C2318"
                             android:layout_marginStart="14dp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="›" android:textSize="20sp" android:textColor="#555577"/>
+                            android:text="›" android:textSize="20sp" android:textColor="#C8BDB1"/>
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp"
-                        android:background="#12122A" android:layout_marginStart="62dp"/>
+                        android:background="#E8E0D5" android:layout_marginStart="62dp"/>
 
-                    <!-- Veri politikası -->
                     <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="16dp" android:paddingEnd="16dp"
                         android:background="?attr/selectableItemBackground">
                         <TextView android:layout_width="32dp" android:layout_height="32dp"
                             android:text="🔒" android:textSize="16sp" android:gravity="center"
-                            android:background="@drawable/circle_dark"/>
+                            android:background="@drawable/circle_orange_light"/>
                         <TextView android:id="@+id/btnPrivacyPolicy"
                             android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="Veri Politikası"
-                            android:textSize="13sp" android:textColor="#FFFFFF"
+                            android:layout_weight="1" android:text="Veri Politikasi"
+                            android:textSize="13sp" android:textColor="#2C2318"
                             android:layout_marginStart="14dp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="›" android:textSize="20sp" android:textColor="#555577"/>
+                            android:text="›" android:textSize="20sp" android:textColor="#C8BDB1"/>
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp"
-                        android:background="#12122A" android:layout_marginStart="62dp"/>
+                        android:background="#E8E0D5" android:layout_marginStart="62dp"/>
 
-                    <!-- Tüm taramaları sil -->
                     <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="16dp" android:paddingEnd="16dp"
                         android:background="?attr/selectableItemBackground">
                         <TextView android:layout_width="32dp" android:layout_height="32dp"
                             android:text="🗑️" android:textSize="16sp" android:gravity="center"
-                            android:background="@drawable/circle_dark"/>
+                            android:background="@drawable/circle_red_light"/>
                         <TextView android:id="@+id/btnDeleteScans"
                             android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="Tüm Taramaları Sil"
-                            android:textSize="13sp" android:textColor="#FF6B6B"
+                            android:layout_weight="1" android:text="Tüm Taramalari Sil"
+                            android:textSize="13sp" android:textColor="#C62828"
                             android:layout_marginStart="14dp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="›" android:textSize="20sp" android:textColor="#555577"/>
+                            android:text="›" android:textSize="20sp" android:textColor="#C8BDB1"/>
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp"
-                        android:background="#12122A" android:layout_marginStart="62dp"/>
+                        android:background="#E8E0D5" android:layout_marginStart="62dp"/>
 
-                    <!-- Hesabı sil -->
                     <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="16dp" android:paddingEnd="16dp"
                         android:background="?attr/selectableItemBackground">
                         <TextView android:layout_width="32dp" android:layout_height="32dp"
                             android:text="⛔" android:textSize="16sp" android:gravity="center"
-                            android:background="@drawable/circle_dark"/>
+                            android:background="@drawable/circle_red_light"/>
                         <TextView android:id="@+id/btnDeleteAccount"
                             android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="Hesabı Sil"
-                            android:textSize="13sp" android:textColor="#FF6B6B"
+                            android:layout_weight="1" android:text="Hesabi Sil"
+                            android:textSize="13sp" android:textColor="#C62828"
                             android:layout_marginStart="14dp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="›" android:textSize="20sp" android:textColor="#555577"/>
+                            android:text="›" android:textSize="20sp" android:textColor="#C8BDB1"/>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -328,89 +304,83 @@
             <!-- UYGULAMA HAKKINDA -->
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="UYGULAMA HAKKINDA" android:textSize="11sp"
-                android:textColor="#7B7B9A" android:letterSpacing="0.15"
-                android:layout_marginBottom="8dp"/>
+                android:textColor="#B5A898" android:letterSpacing="0.15" android:layout_marginBottom="8dp"/>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                app:cardBackgroundColor="#1A1A32" app:cardCornerRadius="16dp"
-                app:cardElevation="0dp">
+            <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardBackgroundColor="#FFFFFF" app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Versiyon -->
                     <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="16dp" android:paddingEnd="16dp">
                         <TextView android:layout_width="32dp" android:layout_height="32dp"
                             android:text="ℹ️" android:textSize="16sp" android:gravity="center"
-                            android:background="@drawable/circle_dark"/>
+                            android:background="@drawable/circle_orange_light"/>
                         <TextView android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:text="Versiyon"
-                            android:textSize="13sp" android:textColor="#FFFFFF"
+                            android:textSize="13sp" android:textColor="#2C2318"
                             android:layout_marginStart="14dp"/>
                         <TextView android:id="@+id/tvVersion"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="1.0.0" android:textSize="13sp" android:textColor="#7B7B9A"/>
+                            android:text="1.0.0" android:textSize="13sp" android:textColor="#B5A898"/>
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp"
-                        android:background="#12122A" android:layout_marginStart="62dp"/>
+                        android:background="#E8E0D5" android:layout_marginStart="62dp"/>
 
-                    <!-- Geliştirici -->
                     <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="16dp" android:paddingEnd="16dp">
                         <TextView android:layout_width="32dp" android:layout_height="32dp"
                             android:text="👩‍💻" android:textSize="16sp" android:gravity="center"
-                            android:background="@drawable/circle_dark"/>
+                            android:background="@drawable/circle_orange_light"/>
                         <TextView android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="Geliştirici"
-                            android:textSize="13sp" android:textColor="#FFFFFF"
+                            android:layout_weight="1" android:text="Gelistirici"
+                            android:textSize="13sp" android:textColor="#2C2318"
                             android:layout_marginStart="14dp"/>
                         <TextView android:id="@+id/tvDeveloper"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="Büşra İriboy" android:textSize="13sp" android:textColor="#7B7B9A"/>
+                            android:text="Busra Iriboy" android:textSize="13sp" android:textColor="#B5A898"/>
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp"
-                        android:background="#12122A" android:layout_marginStart="62dp"/>
+                        android:background="#E8E0D5" android:layout_marginStart="62dp"/>
 
-                    <!-- Kullanım koşulları -->
                     <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="16dp" android:paddingEnd="16dp"
                         android:background="?attr/selectableItemBackground">
                         <TextView android:layout_width="32dp" android:layout_height="32dp"
                             android:text="📄" android:textSize="16sp" android:gravity="center"
-                            android:background="@drawable/circle_dark"/>
+                            android:background="@drawable/circle_orange_light"/>
                         <TextView android:id="@+id/btnTerms"
                             android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="Kullanım Koşulları"
-                            android:textSize="13sp" android:textColor="#FFFFFF"
+                            android:layout_weight="1" android:text="Kullanim Kosullari"
+                            android:textSize="13sp" android:textColor="#2C2318"
                             android:layout_marginStart="14dp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="›" android:textSize="20sp" android:textColor="#555577"/>
+                            android:text="›" android:textSize="20sp" android:textColor="#C8BDB1"/>
                     </LinearLayout>
 
                     <View android:layout_width="match_parent" android:layout_height="1dp"
-                        android:background="#12122A" android:layout_marginStart="62dp"/>
+                        android:background="#E8E0D5" android:layout_marginStart="62dp"/>
 
-                    <!-- Geri bildirim -->
                     <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
                         android:orientation="horizontal" android:gravity="center_vertical"
                         android:paddingStart="16dp" android:paddingEnd="16dp"
                         android:background="?attr/selectableItemBackground">
                         <TextView android:layout_width="32dp" android:layout_height="32dp"
                             android:text="💬" android:textSize="16sp" android:gravity="center"
-                            android:background="@drawable/circle_dark"/>
+                            android:background="@drawable/circle_orange_light"/>
                         <TextView android:id="@+id/btnFeedback"
                             android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="Geri Bildirim Gönder"
-                            android:textSize="13sp" android:textColor="#C9A84C"
+                            android:layout_weight="1" android:text="Geri Bildirim Gonder"
+                            android:textSize="13sp" android:textColor="#E8823A"
                             android:layout_marginStart="14dp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="›" android:textSize="20sp" android:textColor="#555577"/>
+                            android:text="›" android:textSize="20sp" android:textColor="#C8BDB1"/>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -422,9 +392,9 @@
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#15152E"
-        app:itemIconTint="#C9A84C"
-        app:itemTextColor="#C9A84C"
+        android:background="#FFFFFF"
+        app:itemIconTint="#F5A623"
+        app:itemTextColor="#F5A623"
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_bg">
+    android:background="#FAF7F2">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -40,16 +40,16 @@
                         android:id="@+id/tvGreeting"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Merhaba 👋"
+                        android:text="Merhaba"
                         android:textSize="26sp"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#2C2318"
                         android:textStyle="bold"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Cilt sağlığını takip et"
                         android:textSize="13sp"
-                        android:textColor="#7B7B9A"
+                        android:textColor="#B5A898"
                         android:layout_marginTop="2dp"/>
                 </LinearLayout>
                 <TextView
@@ -58,17 +58,17 @@
                     android:text="👤"
                     android:textSize="20sp"
                     android:gravity="center"
-                    android:background="@drawable/circle_dark"/>
+                    android:background="@drawable/circle_light"/>
             </LinearLayout>
 
-            <!-- UV İndeksi Kartı -->
+            <!-- UV Kart -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/uvCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#1A1A32"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="4dp"
+                app:cardElevation="2dp"
                 android:alpha="0"
                 android:layout_marginBottom="16dp">
                 <LinearLayout
@@ -77,7 +77,6 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:padding="16dp">
-
                     <TextView
                         android:id="@+id/tvUVIcon"
                         android:layout_width="44dp"
@@ -85,31 +84,28 @@
                         android:text="☀️"
                         android:textSize="22sp"
                         android:gravity="center"
-                        android:background="@drawable/circle_dark"/>
-
+                        android:background="@drawable/circle_orange_light"/>
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical"
                         android:layout_marginStart="14dp">
-
                         <TextView
                             android:id="@+id/tvUVIndex"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="UV İndeksi yükleniyor..."
+                            android:text="UV Indeksi yükleniyor..."
                             android:textSize="14sp"
-                            android:textColor="#FFFFFF"
+                            android:textColor="#2C2318"
                             android:textStyle="bold"/>
-
                         <TextView
                             android:id="@+id/tvUVMessage"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Konum alınıyor..."
                             android:textSize="12sp"
-                            android:textColor="#7B7B9A"
+                            android:textColor="#B5A898"
                             android:layout_marginTop="3dp"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -121,14 +117,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 app:cardCornerRadius="24dp"
-                app:cardElevation="12dp"
-                app:cardBackgroundColor="#00000000"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#D17F52"
                 android:layout_marginBottom="24dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:background="@drawable/scan_card_gradient"
                     android:padding="24dp">
                     <TextView
                         android:layout_width="wrap_content"
@@ -143,23 +138,23 @@
                         android:layout_height="wrap_content"
                         android:text="Lezyonunu fotoğrafla, yapay zeka analiz etsin"
                         android:textSize="13sp"
-                        android:textColor="#CCCCDD"
+                        android:textColor="#FFF5E6"
                         android:layout_weight="1"/>
                     <Button
                         android:id="@+id/btnScan"
                         android:layout_width="wrap_content"
                         android:layout_height="44dp"
-                        android:text="Başlat →"
-                        android:textColor="#1A1035"
+                        android:text="Başlat"
+                        android:textColor="#B85C2A"
                         android:textStyle="bold"
-                        android:backgroundTint="#C9A84C"
+                        android:backgroundTint="#FFFFFF"
                         android:paddingStart="24dp"
                         android:paddingEnd="24dp"
                         app:cornerRadius="22dp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Son taramalar başlık -->
+            <!-- Son taramalar baslik -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -172,23 +167,23 @@
                     android:layout_weight="1"
                     android:text="SON TARAMALARIM"
                     android:textSize="11sp"
-                    android:textColor="#7B7B9A"
+                    android:textColor="#B5A898"
                     android:letterSpacing="0.15"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tümü →"
                     android:textSize="12sp"
-                    android:textColor="#C9A84C"/>
+                    android:textColor="#8F4520"/>
             </LinearLayout>
 
             <TextView
                 android:id="@+id/tvNoScans"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Henüz tarama yapılmadı.\nİlk taramanı başlatmak için yukarıdaki butona bas."
+                android:text="Henüz tarama yapılmadı."
                 android:textSize="13sp"
-                android:textColor="#7B7B9A"
+                android:textColor="#B5A898"
                 android:gravity="center"
                 android:visibility="gone"
                 android:padding="20dp"/>
@@ -200,36 +195,36 @@
                 android:orientation="vertical"
                 android:layout_marginBottom="24dp"/>
 
-            <!-- Bilgilendirme -->
+            <!-- Risk açıklamaları -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="NASIL YORUMLANIR?"
                 android:textSize="11sp"
-                android:textColor="#7B7B9A"
+                android:textColor="#B5A898"
                 android:letterSpacing="0.15"
                 android:layout_marginBottom="12dp"/>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#1A1A32"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
+                app:cardElevation="2dp"
                 android:layout_marginBottom="8dp">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:orientation="horizontal" android:gravity="center_vertical" android:padding="16dp">
                     <TextView android:layout_width="36dp" android:layout_height="36dp"
                         android:text="✅" android:textSize="18sp" android:gravity="center"
-                        android:background="@drawable/circle_dark"/>
+                        android:background="@drawable/circle_green_light"/>
                     <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                         android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="Düşük Risk" android:textColor="#44BB44"
+                            android:text="Düşük Risk" android:textColor="#5CA37F"
                             android:textStyle="bold" android:textSize="14sp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="Lezyon büyük olasılıkla iyi huylu. 6-12 ayda bir dermatologa görünmek önerilir."
-                            android:textColor="#7B7B9A" android:textSize="12sp" android:layout_marginTop="3dp"/>
+                            android:text="Lezyon büyük olasılıkla iyi huylu. 6-12 ayda bir dermatoloğa görünmek önerilir."
+                            android:textColor="#B5A898" android:textSize="12sp" android:layout_marginTop="3dp"/>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -237,23 +232,23 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#1A1A32"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
+                app:cardElevation="2dp"
                 android:layout_marginBottom="8dp">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:orientation="horizontal" android:gravity="center_vertical" android:padding="16dp">
                     <TextView android:layout_width="36dp" android:layout_height="36dp"
                         android:text="⚠️" android:textSize="18sp" android:gravity="center"
-                        android:background="@drawable/circle_dark"/>
+                        android:background="@drawable/circle_orange_light"/>
                     <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                         android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="Orta Risk" android:textColor="#FFA500"
+                            android:text="Orta Risk" android:textColor="#E8A05C"
                             android:textStyle="bold" android:textSize="14sp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="Takip gerektiriyor. 1-3 ay içinde bir dermatologa başvurman önerilir."
-                            android:textColor="#7B7B9A" android:textSize="12sp" android:layout_marginTop="3dp"/>
+                            android:text="Takip gerektiriyor. 1-3 ay içinde bir dermatoloğa başvurman önerilir."
+                            android:textColor="#B5A898" android:textSize="12sp" android:layout_marginTop="3dp"/>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -261,23 +256,23 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#1A1A32"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
+                app:cardElevation="2dp"
                 android:layout_marginBottom="8dp">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:orientation="horizontal" android:gravity="center_vertical" android:padding="16dp">
                     <TextView android:layout_width="36dp" android:layout_height="36dp"
                         android:text="🔴" android:textSize="18sp" android:gravity="center"
-                        android:background="@drawable/circle_dark"/>
+                        android:background="@drawable/circle_red_light"/>
                     <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                         android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="Yüksek Risk" android:textColor="#FF4444"
+                            android:text="Yüksek Risk" android:textColor="#C85A4F"
                             android:textStyle="bold" android:textSize="14sp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:text="Acil dermatoloji muayenesi önerilir. Bu uygulama tıbbi teşhis yerine geçmez."
-                            android:textColor="#7B7B9A" android:textSize="12sp" android:layout_marginTop="3dp"/>
+                            android:textColor="#B5A898" android:textSize="12sp" android:layout_marginTop="3dp"/>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -285,7 +280,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#1A1225"
+                app:cardBackgroundColor="#FFF3E0"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
                 android:layout_marginTop="4dp"
@@ -293,9 +288,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="ℹ️  Bu uygulama yapay zeka destekli bir tarama aracıdır. Sonuçlar kesin tıbbi teşhis niteliği taşımaz."
+                    android:text="Bu uygulama yapay zeka destekli bir tarama aracıdır. Sonuçlar kesin tıbbi teşhis niteliğini taşımıyor."
                     android:textSize="12sp"
-                    android:textColor="#7B7B9A"
+                    android:textColor="#7A6E65"
                     android:padding="16dp"
                     android:lineSpacingExtra="3dp"/>
             </androidx.cardview.widget.CardView>
@@ -307,9 +302,9 @@
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#15152E"
-        app:itemIconTint="#C9A84C"
-        app:itemTextColor="#C9A84C"
+        android:background="#FFFFFF"
+        app:itemIconTint="#F5A623"
+        app:itemTextColor="#F5A623"
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAF7F2">
+
+    <!-- Sag ust dekoratif daire -->
+    <View
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_gravity="top|end"
+        android:translationX="90dp"
+        android:translationY="-90dp"
+        android:background="@drawable/deco_circle_top"/>
+
+    <!-- Sol alt dekoratif daire -->
+    <View
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="bottom|start"
+        android:translationX="-70dp"
+        android:translationY="70dp"
+        android:background="@drawable/deco_circle_bottom"/>
+
+    <!-- İçerik merkez -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp">
+
+        <!-- Logo halkaları ve ikon -->
+        <FrameLayout
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="28dp">
+
+            <!-- Dış halka -->
+            <View
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@drawable/logo_ring_outer"/>
+
+            <!-- İç halka -->
+            <View
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center"
+                android:background="@drawable/logo_ring_inner"/>
+
+            <!-- Logo -->
+            <ImageView
+                android:id="@+id/ivSplashLogo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_logo"/>
+        </FrameLayout>
+
+        <!-- Uygulama adı -->
+        <TextView
+            android:id="@+id/tvSplashName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DermSense"
+            android:textSize="36sp"
+            android:textColor="#2C2318"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Slogan -->
+        <TextView
+            android:id="@+id/tvSplashSlogan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cilt sağlığınızı yapay zeka ile analiz edin"
+            android:textSize="14sp"
+            android:textColor="#B5A898"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.4"/>
+    </LinearLayout>
+
+    <!-- Alt versiyon yazısı -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="32dp"
+        android:text="v1.0.0 · Büşra İriboy"
+        android:textSize="11sp"
+        android:textColor="#C8BDB1"/>
+
+</FrameLayout>

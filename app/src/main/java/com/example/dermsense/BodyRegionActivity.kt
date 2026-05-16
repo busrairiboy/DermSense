@@ -33,14 +33,16 @@ class BodyRegionActivity : AppCompatActivity() {
         regions.forEach { (cardId, regionName) ->
             val card = findViewById<CardView>(cardId)
             card.setOnClickListener {
-                selectedCard?.setCardBackgroundColor(0x1A1A32.or(-0x1000000))
-                card.setCardBackgroundColor(0x2A2A5E.or(-0x1000000))
+                // Onceki secimi beyaza dondur
+                selectedCard?.setCardBackgroundColor(android.graphics.Color.parseColor("#FFFFFF"))
+                // Yeni secim: karamel/krem tonu
+                card.setCardBackgroundColor(android.graphics.Color.parseColor("#F5DEB3"))
                 selectedCard   = card
                 selectedRegion = regionName
                 tvSelected.text = "Seçilen bölge: $regionName"
                 btnContinue.isEnabled = true
                 btnContinue.backgroundTintList =
-                    android.content.res.ColorStateList.valueOf(0xC9A84C.or(-0x1000000))
+                    android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor("#E8823A"))
             }
         }
 

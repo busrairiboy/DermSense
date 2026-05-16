@@ -84,7 +84,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hesap olustur"
+                    android:text="Hesap oluştur"
                     android:textSize="13sp"
                     android:textColor="#B5A898"
                     android:layout_gravity="center"/>
@@ -104,7 +104,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Giris Yap"
+                    android:text="Giriş Yap"
                     android:textSize="14sp"
                     android:textColor="#7A6E65"
                     android:gravity="center"/>
@@ -113,9 +113,9 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Kayit Ol"
+                    android:text="Kayıt Ol"
                     android:textSize="14sp"
-                    android:textColor="#F5A623"
+                    android:textColor="#B85C2A"
                     android:textStyle="bold"
                     android:gravity="center"
                     android:background="@drawable/tab_active_light"/>
@@ -174,7 +174,7 @@
 
             <!-- Sifre -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Sifre" android:textSize="12sp" android:textColor="#B5A898"
+                android:text="Şifre" android:textSize="12sp" android:textColor="#B5A898"
                 android:layout_marginBottom="6dp"/>
             <LinearLayout android:layout_width="match_parent" android:layout_height="52dp"
                 android:orientation="horizontal" android:gravity="center_vertical"
@@ -220,7 +220,7 @@
                         android:layout_height="wrap_content" android:text="● "
                         android:textSize="11sp" android:textColor="#C8BDB1"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="Buyuk harf" android:textSize="11sp" android:textColor="#B5A898"/>
+                        android:text="Büyük harf" android:textSize="11sp" android:textColor="#B5A898"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:orientation="horizontal" android:layout_marginBottom="4dp">
@@ -236,13 +236,13 @@
                         android:layout_height="wrap_content" android:text="● "
                         android:textSize="11sp" android:textColor="#C8BDB1"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="Ozel karakter (!@#$...)" android:textSize="11sp" android:textColor="#B5A898"/>
+                        android:text="Özel karakter (!@#$...)" android:textSize="11sp" android:textColor="#B5A898"/>
                 </LinearLayout>
             </LinearLayout>
 
             <!-- Yas -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Yas" android:textSize="12sp" android:textColor="#B5A898"
+                android:text="Yaş" android:textSize="12sp" android:textColor="#B5A898"
                 android:layout_marginBottom="6dp"/>
             <LinearLayout android:layout_width="match_parent" android:layout_height="52dp"
                 android:orientation="horizontal" android:gravity="center_vertical"
@@ -272,21 +272,21 @@
             <!-- Kayit Ol butonu -->
             <Button android:id="@+id/btnRegister"
                 android:layout_width="match_parent" android:layout_height="52dp"
-                android:text="Kayit Ol"
+                android:text="Kayıt Ol"
                 android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="15sp"
-                android:backgroundTint="#F5A623" app:cornerRadius="14dp"
+                android:backgroundTint="#F4A574" app:cornerRadius="14dp"
                 android:layout_marginBottom="20dp"/>
 
             <!-- Giris yap linki -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:gravity="center">
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Zaten hesabin var mi? "
+                    android:text="Zaten hesabın var mı? "
                     android:textSize="13sp" android:textColor="#7A6E65"/>
                 <TextView android:id="@+id/btnLogin"
                     android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Giris yap"
-                    android:textSize="13sp" android:textColor="#E8823A" android:textStyle="bold"/>
+                    android:text="Giriş yap"
+                    android:textSize="13sp" android:textColor="#B85C2A" android:textStyle="bold"/>
             </LinearLayout>
 
         </LinearLayout>

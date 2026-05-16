@@ -78,9 +78,9 @@ class MainActivity : AppCompatActivity() {
 
         db.collection("users").document(uid).get()
             .addOnSuccessListener { doc ->
-                val name = doc.getString("name") ?: "Kullanıcı"
+                val name = doc.getString("name") ?: "Kullanici"
                 val firstName = name.split(" ").firstOrNull() ?: name
-                tvGreeting.text = "Merhaba, $firstName 👋"
+                tvGreeting.text = "Merhaba, $firstName"
             }
 
         db.collection("users").document(uid).collection("scans")
@@ -110,8 +110,6 @@ class MainActivity : AppCompatActivity() {
             }
 
         btnScan.setOnClickListener { checkCameraPermission() }
-
-        // UV indeksi yükle
         checkLocationAndFetchUV()
 
         bottomNav.setOnItemSelectedListener { item ->
@@ -146,14 +144,9 @@ class MainActivity : AppCompatActivity() {
             != PackageManager.PERMISSION_GRANTED) return
 
         fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
-            if (location != null) {
-                val lat = location.latitude
-                val lon = location.longitude
-                fetchUVFromAPI(lat, lon)
-            } else {
-                // Konum alınamazsa İstanbul koordinatları varsayılan
-                fetchUVFromAPI(41.0082, 28.9784)
-            }
+            val lat = location?.latitude ?: 41.0082
+            val lon = location?.longitude ?: 28.9784
+            fetchUVFromAPI(lat, lon)
         }
     }
 
@@ -163,13 +156,9 @@ class MainActivity : AppCompatActivity() {
                 val url = "https://api.open-meteo.com/v1/forecast?latitude=$lat&longitude=$lon&hourly=uv_index&forecast_days=1&timezone=auto"
                 val response = URL(url).readText()
                 val json = JSONObject(response)
-                val hourly = json.getJSONObject("hourly")
-                val uvArray = hourly.getJSONArray("uv_index")
-
-                // Şu anki saate göre UV al (12:00 = index 12)
+                val uvArray = json.getJSONObject("hourly").getJSONArray("uv_index")
                 val hour = java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY)
                 val uvIndex = uvArray.getDouble(hour.coerceIn(0, 23))
-
                 runOnUiThread { updateUVCard(uvIndex) }
             } catch (e: Exception) {
                 runOnUiThread { updateUVCard(-1.0) }
@@ -178,31 +167,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateUVCard(uvIndex: Double) {
-        val tvUV      = findViewById<TextView>(R.id.tvUVIndex) ?: return
-        val tvUVMsg   = findViewById<TextView>(R.id.tvUVMessage) ?: return
-        val tvUVIcon  = findViewById<TextView>(R.id.tvUVIcon) ?: return
-        val uvCard    = findViewById<CardView>(R.id.uvCard) ?: return
+        val tvUV     = findViewById<TextView>(R.id.tvUVIndex)  ?: return
+        val tvUVMsg  = findViewById<TextView>(R.id.tvUVMessage) ?: return
+        val tvUVIcon = findViewById<TextView>(R.id.tvUVIcon)   ?: return
+        val uvCard   = findViewById<CardView>(R.id.uvCard)     ?: return
 
         if (uvIndex < 0) {
-            tvUV.text    = "UV: —"
-            tvUVMsg.text = "Konum alınamadı"
+            tvUV.text     = "UV: —"
+            tvUVMsg.text  = "Konum alinamadi"
             tvUVIcon.text = "🌤️"
             return
         }
 
         val (icon, msg, color) = when {
-            uvIndex <= 2  -> Triple("🟢", "UV düşük — Normal aktivite güvenli", "#44BB44")
-            uvIndex <= 5  -> Triple("🟡", "UV orta — SPF 30+ öner", "#FFA500")
-            uvIndex <= 7  -> Triple("🟠", "UV yüksek — SPF 50+ kullan, şapka tak", "#FF8C00")
-            uvIndex <= 10 -> Triple("🔴", "UV çok yüksek — Güneşten kaçın!", "#FF4444")
-            else          -> Triple("☢️", "UV aşırı — Dışarı çıkmayın!", "#CC0000")
+            uvIndex <= 2  -> Triple("🟢", "UV dusuk — Normal aktivite guvenli",    "#5D8A5E")
+            uvIndex <= 5  -> Triple("🟡", "UV orta — SPF 30+ kullan",              "#C4963A")
+            uvIndex <= 7  -> Triple("🟠", "UV yuksek — SPF 50+ kullan, sapka tak", "#D4763A")
+            uvIndex <= 10 -> Triple("🔴", "UV cok yuksek — Gunesten kacin!",       "#C05050")
+            else          -> Triple("☢️", "UV asiri — Disari cikmayın!",           "#9E3A3A")
         }
 
         tvUVIcon.text = icon
-        tvUV.text    = "UV İndeksi: ${String.format("%.1f", uvIndex)}"
-        tvUVMsg.text = msg
+        tvUV.text     = "UV Indeksi: ${String.format("%.1f", uvIndex)}"
+        tvUVMsg.text  = msg
         tvUV.setTextColor(Color.parseColor(color))
-
         uvCard.animate().alpha(1f).setDuration(500).start()
     }
 
@@ -211,48 +199,97 @@ class MainActivity : AppCompatActivity() {
         confidence: Int, region: String, date: String
     ): View {
         val dp = resources.displayMetrics.density
-        val riskColor = when (risk) { "YÜKSEK" -> "#FF4444"; "ORTA" -> "#FFA500"; else -> "#44BB44" }
-        val riskEmoji = when (risk) { "YÜKSEK" -> "🔴"; "ORTA" -> "⚠️"; else -> "✅" }
+
+        // Palete uygun renkler
+        val riskColor = when (risk) {
+            "YUKSEK", "YÜKSEK" -> "#C05050"   // yumusak kirmizi
+            "ORTA"              -> "#C4963A"   // karamel sari
+            else                -> "#5D8A5E"   // yumusak yesil
+        }
+        val riskBg = when (risk) {
+            "YUKSEK", "YÜKSEK" -> "#FFF0F0"
+            "ORTA"              -> "#FFF8EC"
+            else                -> "#F0F7F0"
+        }
+        val riskEmoji = when (risk) {
+            "YUKSEK", "YÜKSEK" -> "🔴"
+            "ORTA"              -> "⚠️"
+            else                -> "✅"
+        }
 
         val card = CardView(this).apply {
-            radius = 16f * dp; cardElevation = 4f
-            setCardBackgroundColor(Color.parseColor("#1A1A32"))
-            val lp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-            lp.bottomMargin = (10 * dp).toInt(); layoutParams = lp
+            radius = 16f * dp
+            cardElevation = 2f
+            setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+            val lp = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            lp.bottomMargin = (10 * dp).toInt()
+            layoutParams = lp
         }
+
         val inner = LinearLayout(this).apply {
-            orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
             setPadding((16*dp).toInt(), (14*dp).toInt(), (16*dp).toInt(), (14*dp).toInt())
         }
+
         val stripe = View(this).apply {
             val lp = LinearLayout.LayoutParams((3*dp).toInt(), (44*dp).toInt())
-            lp.marginEnd = (14*dp).toInt(); layoutParams = lp
-            background = GradientDrawable().apply { cornerRadius = 4f*dp; setColor(Color.parseColor(riskColor)) }
+            lp.marginEnd = (14*dp).toInt()
+            layoutParams = lp
+            background = GradientDrawable().apply {
+                cornerRadius = 4f * dp
+                setColor(Color.parseColor(riskColor))
+            }
         }
+
         val middle = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
         }
-        middle.addView(TextView(this).apply { text = diagnosis; textSize = 14f; setTextColor(Color.WHITE); setTypeface(null, Typeface.BOLD) })
-        middle.addView(TextView(this).apply { text = "$date · $region"; textSize = 12f; setTextColor(Color.parseColor("#7B7B9A")); setPadding(0, (3*dp).toInt(), 0, 0) })
-        middle.addView(TextView(this).apply { text = "Güven: %$confidence"; textSize = 11f; setTextColor(Color.parseColor("#555577")); setPadding(0, (2*dp).toInt(), 0, 0) })
+        middle.addView(TextView(this).apply {
+            text = diagnosis; textSize = 14f
+            setTextColor(Color.parseColor("#2C2318"))
+            setTypeface(null, Typeface.BOLD)
+        })
+        middle.addView(TextView(this).apply {
+            text = "$date · $region"; textSize = 12f
+            setTextColor(Color.parseColor("#B5A898"))
+            setPadding(0, (3*dp).toInt(), 0, 0)
+        })
+        middle.addView(TextView(this).apply {
+            text = "Guven: %$confidence"; textSize = 11f
+            setTextColor(Color.parseColor("#C8BDB1"))
+            setPadding(0, (2*dp).toInt(), 0, 0)
+        })
 
         val tvRisk = TextView(this).apply {
             text = "$riskEmoji\n$risk"; textSize = 10f
-            setTextColor(Color.parseColor(riskColor)); setTypeface(null, Typeface.BOLD); gravity = Gravity.CENTER
+            setTextColor(Color.parseColor(riskColor))
+            setTypeface(null, Typeface.BOLD)
+            gravity = Gravity.CENTER
             setPadding((10*dp).toInt(), (8*dp).toInt(), (10*dp).toInt(), (8*dp).toInt())
             background = GradientDrawable().apply {
-                cornerRadius = 10f*dp
-                setColor(Color.argb(30, Color.red(Color.parseColor(riskColor)), Color.green(Color.parseColor(riskColor)), Color.blue(Color.parseColor(riskColor))))
+                cornerRadius = 10f * dp
+                setColor(Color.parseColor(riskBg))
                 setStroke((1*dp).toInt(), Color.parseColor(riskColor))
             }
         }
-        inner.addView(stripe); inner.addView(middle); inner.addView(tvRisk)
+
+        inner.addView(stripe)
+        inner.addView(middle)
+        inner.addView(tvRisk)
         card.addView(inner)
+
         card.setOnClickListener {
             val intent = Intent(this, ScanDetailActivity::class.java).apply {
-                putExtra("diagnosis", diagnosis); putExtra("risk", risk)
-                putExtra("confidence", confidence); putExtra("region", region); putExtra("date", date)
+                putExtra("diagnosis", diagnosis)
+                putExtra("risk", risk)
+                putExtra("confidence", confidence)
+                putExtra("region", region)
+                putExtra("date", date)
             }
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)

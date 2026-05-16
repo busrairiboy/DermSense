@@ -1,37 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
+        android:roundIcon="@mipmap/logo_round"
         android:label="DermSense"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DermSense">
+        android:theme="@style/Theme.DermSense"
+        android:usesCleartextTraffic="true">
 
-
-        <activity android:name=".MainActivity" android:exported="true">
+        <!-- Splash — başlangıç ekranı -->
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.DermSense">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".RegisterActivity"/>
-        <activity android:name=".CameraActivity"/>
-        <activity android:name=".BodyRegionActivity"/>
-        <activity android:name=".ResultActivity"/>
-        <activity android:name=".ProfileActivity"/>
-        <activity android:name=".ScanDetailActivity"/>
-        <activity android:name=".SettingsActivity"/>
-        <activity android:name=".InfoActivity"/>
+        <activity android:name=".MainActivity" android:exported="false"/>
+        <activity android:name=".LoginActivity" android:exported="false"/>
+        <activity android:name=".RegisterActivity" android:exported="false"/>
+        <activity android:name=".CameraActivity" android:exported="false"/>
+        <activity android:name=".BodyRegionActivity" android:exported="false"/>
+        <activity android:name=".ResultActivity" android:exported="false"/>
+        <activity android:name=".ProfileActivity" android:exported="false"/>
+        <activity android:name=".ScanDetailActivity" android:exported="false"/>
+        <activity android:name=".SettingsActivity" android:exported="false"/>
+        <activity android:name=".InfoActivity" android:exported="false"/>
 
     </application>
 </manifest>

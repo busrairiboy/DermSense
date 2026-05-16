@@ -71,7 +71,7 @@ class PieChartView @JvmOverloads constructor(
             canvas.drawText(total.toInt().toString(), cx, cy + textPaint.textSize * 0.35f, textPaint)
             textPaint.textSize = radius * 0.18f
             textPaint.setColor(Color.parseColor("#7B7B9A"))
-            canvas.drawText("tarama", cx, cy + textPaint.textSize * 3.5f, textPaint)
+            canvas.drawText("", cx, cy + textPaint.textSize * 3.5f, textPaint)
             textPaint.setColor(Color.WHITE)
         }
     }
