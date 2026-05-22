@@ -151,11 +151,11 @@
                             android:layout_width="0dp" android:layout_height="40dp"
                             android:layout_weight="1" android:layout_marginEnd="8dp"
                             android:text="Kaydet" android:textColor="#FFFFFF" android:textStyle="bold"
-                            android:backgroundTint="#C8926A" app:cornerRadius="10dp"/>
+                            android:backgroundTint="#8F4520" app:cornerRadius="10dp"/>
                         <Button android:id="@+id/btnChangePassword"
                             android:layout_width="0dp" android:layout_height="40dp"
                             android:layout_weight="1"
-                            android:text="Sifre Degistir" android:textColor="#E8823A"
+                            android:text="Şifre Degiştir" android:textColor="#8F4520"
                             android:backgroundTint="#FFF3E0" app:cornerRadius="10dp"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -163,7 +163,7 @@
 
             <!-- BİLDİRİMLER -->
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="BILDIRIMLER" android:textSize="11sp"
+                android:text="BİLDİRİMLER" android:textSize="11sp"
                 android:textColor="#B5A898" android:letterSpacing="0.15" android:layout_marginBottom="8dp"/>
 
             <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -182,7 +182,7 @@
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                android:text="Tarama Hatirlaticisi" android:textSize="13sp"
+                                android:text="Tarama Hatırlatıcısı" android:textSize="13sp"
                                 android:textColor="#2C2318" android:textStyle="bold"/>
                             <Spinner android:id="@+id/spinnerReminder"
                                 android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -202,22 +202,22 @@
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                android:text="UV Uyarisi" android:textSize="13sp"
+                                android:text="UV Uyarısı" android:textSize="13sp"
                                 android:textColor="#2C2318" android:textStyle="bold"/>
                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                android:text="UV yuksekken bildirim al" android:textSize="11sp"
+                                android:text="UV yüksekken bildirim al" android:textSize="11sp"
                                 android:textColor="#B5A898"/>
                         </LinearLayout>
                         <Switch android:id="@+id/switchUVNotification"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:thumbTint="#F5A623" android:trackTint="#33F5A623"/>
+                            android:thumbTint="#8F4520" android:trackTint="#33F5A623"/>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <!-- GİZLİLİK -->
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="GIZLILIK VE VERILER" android:textSize="11sp"
+                android:text="GİZLİLİK VE VERİLER" android:textSize="11sp"
                 android:textColor="#B5A898" android:letterSpacing="0.15" android:layout_marginBottom="8dp"/>
 
             <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -235,7 +235,7 @@
                             android:background="@drawable/circle_orange_light"/>
                         <TextView android:id="@+id/btnExportData"
                             android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="Taramalari Disa Aktar"
+                            android:layout_weight="1" android:text="Taramaları Dışa Aktar"
                             android:textSize="13sp" android:textColor="#2C2318"
                             android:layout_marginStart="14dp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -254,7 +254,7 @@
                             android:background="@drawable/circle_orange_light"/>
                         <TextView android:id="@+id/btnPrivacyPolicy"
                             android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="Veri Politikasi"
+                            android:layout_weight="1" android:text="Veri Politikası"
                             android:textSize="13sp" android:textColor="#2C2318"
                             android:layout_marginStart="14dp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -273,7 +273,7 @@
                             android:background="@drawable/circle_red_light"/>
                         <TextView android:id="@+id/btnDeleteScans"
                             android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="Tüm Taramalari Sil"
+                            android:layout_weight="1" android:text="Tüm Taramaları Sil"
                             android:textSize="13sp" android:textColor="#C62828"
                             android:layout_marginStart="14dp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -292,7 +292,7 @@
                             android:background="@drawable/circle_red_light"/>
                         <TextView android:id="@+id/btnDeleteAccount"
                             android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="Hesabi Sil"
+                            android:layout_weight="1" android:text="Hesabı Sil"
                             android:textSize="13sp" android:textColor="#C62828"
                             android:layout_marginStart="14dp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -337,7 +337,7 @@
                             android:text="👩‍💻" android:textSize="16sp" android:gravity="center"
                             android:background="@drawable/circle_orange_light"/>
                         <TextView android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="Gelistirici"
+                            android:layout_weight="1" android:text="Geliştirici"
                             android:textSize="13sp" android:textColor="#2C2318"
                             android:layout_marginStart="14dp"/>
                         <TextView android:id="@+id/tvDeveloper"
@@ -357,7 +357,7 @@
                             android:background="@drawable/circle_orange_light"/>
                         <TextView android:id="@+id/btnTerms"
                             android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="Kullanim Kosullari"
+                            android:layout_weight="1" android:text="Kullanım Koşulları"
                             android:textSize="13sp" android:textColor="#2C2318"
                             android:layout_marginStart="14dp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -376,7 +376,7 @@
                             android:background="@drawable/circle_orange_light"/>
                         <TextView android:id="@+id/btnFeedback"
                             android:layout_width="0dp" android:layout_height="wrap_content"
-                            android:layout_weight="1" android:text="Geri Bildirim Gonder"
+                            android:layout_weight="1" android:text="Geri Bildirim Gönder"
                             android:textSize="13sp" android:textColor="#E8823A"
                             android:layout_marginStart="14dp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -393,8 +393,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        app:itemIconTint="#F5A623"
-        app:itemTextColor="#F5A623"
+        app:itemIconTint="#292524"
+        app:itemTextColor="#292524"
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

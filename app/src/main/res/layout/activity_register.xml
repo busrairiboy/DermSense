@@ -6,128 +6,60 @@
     android:layout_height="match_parent"
     android:background="#FAF7F2">
 
-    <View
-        android:layout_width="260dp"
-        android:layout_height="260dp"
-        android:layout_gravity="top|end"
-        android:translationX="90dp"
-        android:translationY="-90dp"
+    <View android:layout_width="260dp" android:layout_height="260dp"
+        android:layout_gravity="top|end" android:translationX="90dp" android:translationY="-90dp"
         android:background="@drawable/deco_circle_top"/>
-
-    <View
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="bottom|start"
-        android:translationX="-70dp"
-        android:translationY="70dp"
+    <View android:layout_width="200dp" android:layout_height="200dp"
+        android:layout_gravity="bottom|start" android:translationX="-70dp" android:translationY="70dp"
         android:background="@drawable/deco_circle_bottom"/>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#00000000"
-        android:scrollbars="none">
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent"
+        android:background="#00000000" android:scrollbars="none">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingStart="24dp"
-            android:paddingEnd="24dp"
-            android:paddingBottom="32dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:paddingStart="24dp"
+            android:paddingEnd="24dp" android:paddingBottom="32dp">
 
             <!-- Logo -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:paddingTop="52dp"
-                android:layout_marginBottom="28dp">
-
-                <FrameLayout
-                    android:layout_width="88dp"
-                    android:layout_height="88dp"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="16dp">
-
-                    <View
-                        android:layout_width="88dp"
-                        android:layout_height="88dp"
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:gravity="center"
+                android:paddingTop="52dp" android:layout_marginBottom="28dp">
+                <FrameLayout android:layout_width="88dp" android:layout_height="88dp"
+                    android:layout_gravity="center" android:layout_marginBottom="16dp">
+                    <View android:layout_width="88dp" android:layout_height="88dp"
                         android:background="@drawable/logo_ring_outer"/>
-
-                    <View
-                        android:layout_width="72dp"
-                        android:layout_height="72dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/logo_ring_inner"/>
-
-                    <ImageView
-                        android:id="@+id/ivLogo"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:scaleType="centerInside"
+                    <View android:layout_width="72dp" android:layout_height="72dp"
+                        android:layout_gravity="center" android:background="@drawable/logo_ring_inner"/>
+                    <ImageView android:id="@+id/ivLogo"
+                        android:layout_width="60dp" android:layout_height="60dp"
+                        android:layout_gravity="center" android:scaleType="centerInside"
                         android:src="@drawable/ic_logo"/>
                 </FrameLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="DermSense"
-                    android:textSize="28sp"
-                    android:textColor="#2C2318"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="4dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hesap oluştur"
-                    android:textSize="13sp"
-                    android:textColor="#B5A898"
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="DermSense" android:textSize="28sp" android:textColor="#2C2318"
+                    android:textStyle="bold" android:layout_gravity="center" android:layout_marginBottom="4dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Hesap oluştur" android:textSize="13sp" android:textColor="#B5A898"
                     android:layout_gravity="center"/>
             </LinearLayout>
 
-            <!-- Tab satiri -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:orientation="horizontal"
-                android:background="@drawable/tab_bg_light"
-                android:padding="4dp"
-                android:layout_marginBottom="24dp">
-
-                <TextView
-                    android:id="@+id/tabLogin"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="Giriş Yap"
-                    android:textSize="14sp"
-                    android:textColor="#7A6E65"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="Kayıt Ol"
-                    android:textSize="14sp"
-                    android:textColor="#B85C2A"
-                    android:textStyle="bold"
-                    android:gravity="center"
+            <!-- Tab -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="48dp"
+                android:orientation="horizontal" android:background="@drawable/tab_bg_light"
+                android:padding="4dp" android:layout_marginBottom="24dp">
+                <TextView android:id="@+id/tabLogin"
+                    android:layout_width="0dp" android:layout_height="match_parent"
+                    android:layout_weight="1" android:text="Giriş Yap" android:textSize="14sp"
+                    android:textColor="#7A6E65" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="match_parent"
+                    android:layout_weight="1" android:text="Kayıt Ol" android:textSize="14sp"
+                    android:textColor="#B85C2A" android:textStyle="bold" android:gravity="center"
                     android:background="@drawable/tab_active_light"/>
             </LinearLayout>
 
-            <!-- Ad - Soyad yan yana -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="12dp">
-
+            <!-- Ad - Soyad -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="12dp">
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                     android:layout_weight="1" android:orientation="vertical" android:layout_marginEnd="6dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -140,7 +72,6 @@
                         android:background="@drawable/input_bg_light"
                         android:paddingStart="14dp" android:paddingEnd="14dp"/>
                 </LinearLayout>
-
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                     android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="6dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -172,7 +103,7 @@
                     android:inputType="textEmailAddress" android:background="@null" android:padding="0dp"/>
             </LinearLayout>
 
-            <!-- Sifre -->
+            <!-- Şifre -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="Şifre" android:textSize="12sp" android:textColor="#B5A898"
                 android:layout_marginBottom="6dp"/>
@@ -189,7 +120,7 @@
                     android:inputType="textPassword" android:background="@null" android:padding="0dp"/>
             </LinearLayout>
 
-            <!-- Sifre guc barlari -->
+            <!-- Şifre güç barları -->
             <LinearLayout android:id="@+id/strengthBars"
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:layout_marginBottom="8dp">
@@ -240,7 +171,7 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Yas -->
+            <!-- Yaş -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="Yaş" android:textSize="12sp" android:textColor="#B5A898"
                 android:layout_marginBottom="6dp"/>
@@ -257,6 +188,23 @@
                     android:inputType="number" android:background="@null" android:padding="0dp"/>
             </LinearLayout>
 
+            <!-- Cinsiyet -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Cinsiyet" android:textSize="12sp" android:textColor="#B5A898"
+                android:layout_marginBottom="6dp"/>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="52dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:background="@drawable/input_bg_light"
+                android:paddingStart="14dp" android:paddingEnd="14dp" android:layout_marginBottom="16dp">
+                <Spinner
+                    android:id="@+id/rgGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:textColor="#2C2318"/>
+            </LinearLayout>
+
             <!-- Hata -->
             <TextView android:id="@+id/tvError"
                 android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -267,9 +215,9 @@
             <ProgressBar android:id="@+id/progressBar"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_gravity="center" android:visibility="gone"
-                android:layout_marginBottom="12dp" android:indeterminateTint="#F5A623"/>
+                android:layout_marginBottom="12dp" android:indeterminateTint="#F4A574"/>
 
-            <!-- Kayit Ol butonu -->
+            <!-- Kayıt Ol butonu -->
             <Button android:id="@+id/btnRegister"
                 android:layout_width="match_parent" android:layout_height="52dp"
                 android:text="Kayıt Ol"
@@ -277,7 +225,7 @@
                 android:backgroundTint="#F4A574" app:cornerRadius="14dp"
                 android:layout_marginBottom="20dp"/>
 
-            <!-- Giris yap linki -->
+            <!-- Giriş yap linki -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:gravity="center">
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -291,5 +239,4 @@
 
         </LinearLayout>
     </ScrollView>
-
 </FrameLayout>

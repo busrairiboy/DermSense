@@ -47,18 +47,19 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cilt sağlığını takip et"
+                        android:text="Cilt sagligini takip et"
                         android:textSize="13sp"
                         android:textColor="#B5A898"
                         android:layout_marginTop="2dp"/>
                 </LinearLayout>
                 <TextView
+                    android:id="@+id/tvProfileAvatar"
                     android:layout_width="46dp"
                     android:layout_height="46dp"
-                    android:text="👤"
-                    android:textSize="20sp"
+                    android:text="😊"
+                    android:textSize="22sp"
                     android:gravity="center"
-                    android:background="@drawable/circle_light"/>
+                    android:background="@drawable/circle_orange_light"/>
             </LinearLayout>
 
             <!-- UV Kart -->
@@ -95,7 +96,7 @@
                             android:id="@+id/tvUVIndex"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="UV Indeksi yükleniyor..."
+                            android:text="UV Indeksi yukleniyor..."
                             android:textSize="14sp"
                             android:textColor="#2C2318"
                             android:textStyle="bold"/>
@@ -103,7 +104,7 @@
                             android:id="@+id/tvUVMessage"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Konum alınıyor..."
+                            android:text="Konum aliniyor..."
                             android:textSize="12sp"
                             android:textColor="#B5A898"
                             android:layout_marginTop="3dp"/>
@@ -145,7 +146,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="44dp"
                         android:text="Başlat"
-                        android:textColor="#B85C2A"
+                        android:textColor="#8F4520"
                         android:textStyle="bold"
                         android:backgroundTint="#FFFFFF"
                         android:paddingStart="24dp"
@@ -172,9 +173,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tümü →"
+                    android:text=""
                     android:textSize="12sp"
-                    android:textColor="#8F4520"/>
+                    android:textColor="#E8823A"/>
             </LinearLayout>
 
             <TextView
@@ -220,10 +221,10 @@
                     <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                         android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="Düşük Risk" android:textColor="#5CA37F"
+                            android:text="Düşük Risk" android:textColor="#2E7D32"
                             android:textStyle="bold" android:textSize="14sp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="Lezyon büyük olasılıkla iyi huylu. 6-12 ayda bir dermatoloğa görünmek önerilir."
+                            android:text="Lezyon buyuk olasilikla iyi huylu. 6-12 ayda bir dermatologa gorunmek onerilir."
                             android:textColor="#B5A898" android:textSize="12sp" android:layout_marginTop="3dp"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -244,10 +245,10 @@
                     <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                         android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="Orta Risk" android:textColor="#E8A05C"
+                            android:text="Orta Risk" android:textColor="#E65100"
                             android:textStyle="bold" android:textSize="14sp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="Takip gerektiriyor. 1-3 ay içinde bir dermatoloğa başvurman önerilir."
+                            android:text="Takip gerektiriyor. 1-3 ay içinde bir dermatologa başvurman önerilir."
                             android:textColor="#B5A898" android:textSize="12sp" android:layout_marginTop="3dp"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -268,10 +269,10 @@
                     <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                         android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="Yüksek Risk" android:textColor="#C85A4F"
+                            android:text="Yüksek Risk" android:textColor="#C62828"
                             android:textStyle="bold" android:textSize="14sp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="Acil dermatoloji muayenesi önerilir. Bu uygulama tıbbi teşhis yerine geçmez."
+                            android:text="Acil dermatoloji muayenesi önerilir. Bu uygulama tıbbı teşhis yerine geçmez."
                             android:textColor="#B5A898" android:textSize="12sp" android:layout_marginTop="3dp"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -303,8 +304,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        app:itemIconTint="#F5A623"
-        app:itemTextColor="#F5A623"
+        app:itemIconTint="#292524"
+        app:itemTextColor="#292524"
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

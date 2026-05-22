@@ -29,23 +29,43 @@
             <!-- Avatar kartı -->
             <androidx.cardview.widget.CardView android:id="@+id/avatarCard"
                 android:layout_width="match_parent" android:layout_height="wrap_content"
-                app:cardBackgroundColor="#D17F52" app:cardCornerRadius="24dp"
+                app:cardBackgroundColor="#F8D4B0" app:cardCornerRadius="24dp"
                 app:cardElevation="4dp" android:layout_marginBottom="16dp">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:orientation="vertical" android:gravity="center"
                     android:padding="28dp">
+
                     <TextView android:id="@+id/tvInitials"
                         android:layout_width="80dp" android:layout_height="80dp"
-                        android:text="DS" android:textSize="28sp" android:textColor="#F5A623"
-                        android:textStyle="bold" android:gravity="center"
-                        android:background="@drawable/circle_white" android:layout_marginBottom="14dp"/>
+                        android:text="😊" android:textSize="36sp"
+                        android:gravity="center"
+                        android:background="@drawable/circle_white"
+                        android:layout_marginBottom="14dp"/>
+
                     <TextView android:id="@+id/tvName"
                         android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="Yukleniyor..." android:textSize="22sp"
-                        android:textColor="#FFFFFF" android:textStyle="bold" android:layout_marginBottom="4dp"/>
+                        android:text="Yükleniyor..." android:textSize="22sp"
+                        android:textColor="#8F4520" android:textStyle="bold"
+                        android:layout_marginBottom="4dp"/>
+
                     <TextView android:id="@+id/tvEmail"
                         android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="" android:textSize="13sp" android:textColor="#FFF5E6"/>
+                        android:text="" android:textSize="13sp" android:textColor="#8F4520"
+                        android:layout_marginBottom="16dp"/>
+
+                    <!-- Avatar özelleştir butonu -->
+                    <TextView
+                        android:id="@+id/btnChangeColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🎨 Özelleştir"
+                        android:textSize="13sp"
+                        android:textColor="#8F4520"
+                        android:background="@drawable/btn_customize"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -86,6 +106,26 @@
                                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                                     android:text="Yaş" android:textSize="11sp" android:textColor="#B5A898"/>
                                 <TextView android:id="@+id/tvAge" android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:text="-"
+                                    android:textSize="16sp" android:textColor="#2C2318" android:textStyle="bold"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View android:layout_width="match_parent" android:layout_height="1dp"
+                            android:background="#E8E0D5" android:layout_marginBottom="14dp"/>
+
+                        <!-- Cinsiyet -->
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:orientation="horizontal" android:gravity="center_vertical"
+                            android:layout_marginBottom="14dp">
+                            <TextView android:layout_width="40dp" android:layout_height="40dp"
+                                android:text="🧬" android:textSize="18sp" android:gravity="center"
+                                android:background="@drawable/circle_orange_light"/>
+                            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="14dp">
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:text="Cinsiyet" android:textSize="11sp" android:textColor="#B5A898"/>
+                                <TextView android:id="@+id/tvGender" android:layout_width="wrap_content"
                                     android:layout_height="wrap_content" android:text="-"
                                     android:textSize="16sp" android:textColor="#2C2318" android:textStyle="bold"/>
                             </LinearLayout>
@@ -142,7 +182,7 @@
                                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                                     android:text="Tarama Hatırlatıcısı" android:textSize="11sp" android:textColor="#B5A898"/>
                                 <TextView android:id="@+id/tvReminder" android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" android:text="Kapali"
+                                    android:layout_height="wrap_content" android:text="Kapalı"
                                     android:textSize="14sp" android:textColor="#2C2318"/>
                             </LinearLayout>
                         </LinearLayout>
@@ -233,7 +273,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Son taramalar -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
                 <TextView android:layout_width="0dp" android:layout_height="wrap_content"
@@ -264,8 +303,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        app:itemIconTint="#F5A623"
-        app:itemTextColor="#F5A623"
+        app:itemIconTint="#292524"
+        app:itemTextColor="#292524"
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

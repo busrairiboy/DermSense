@@ -81,6 +81,10 @@ class MainActivity : AppCompatActivity() {
                 val name = doc.getString("name") ?: "Kullanici"
                 val firstName = name.split(" ").firstOrNull() ?: name
                 tvGreeting.text = "Merhaba, $firstName"
+
+                // Profil avatarını güncelle
+                val emoji = doc.getString("avatarEmoji") ?: "😊"
+                findViewById<TextView>(R.id.tvProfileAvatar)?.text = emoji
             }
 
         db.collection("users").document(uid).collection("scans")

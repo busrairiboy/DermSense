@@ -21,17 +21,12 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
 
     private val avatarEmojis = listOf(
-        "😊", "😎", "🧑‍⚕️", "👩‍⚕️", "🦁", "🐺", "🦊", "🐻",
-        "🌸", "🌿", "⭐", "🔬", "🩺", "💊", "🌙", "☀️"
-    )
-
-    private val avatarColors = listOf(
-        "#E8823A", "#C4963A", "#5D8A5E", "#7A9EC4",
-        "#C05050", "#8A7AC4", "#C4837A", "#6A9E9E"
+        "😊", "😎", "🧑‍⚕️", "👩‍⚕️", "🦁", "🐺",
+        "🦊", "🐻", "🌸", "🌿", "⭐", "🔬",
+        "🩺", "💊", "🌙", "☀️"
     )
 
     private var selectedEmoji = "😊"
-    private var selectedColor = "#E8823A"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +42,7 @@ class ProfileActivity : AppCompatActivity() {
         val tvInitials     = findViewById<TextView>(R.id.tvInitials)
         val tvAllergyNotes = findViewById<TextView>(R.id.tvAllergyNotes)
         val tvReminder     = findViewById<TextView>(R.id.tvReminder)
+        val tvGender       = findViewById<TextView>(R.id.tvGender)
         val btnLogout      = findViewById<Button>(R.id.btnLogout)
         val scansList      = findViewById<LinearLayout>(R.id.scansList)
         val tvNoScans      = findViewById<TextView>(R.id.tvNoScans)
@@ -95,43 +91,37 @@ class ProfileActivity : AppCompatActivity() {
 
         val uid = auth.currentUser?.uid ?: return
 
-        // Özelleştir butonu
-        btnCustomize.setOnClickListener {
-            showAvatarCustomizeDialog(tvInitials, avatarCard, uid)
-        }
-
-        // Avatar çift tıklama da aynı dialog
-        tvInitials.setOnClickListener {
-            showAvatarCustomizeDialog(tvInitials, avatarCard, uid)
-        }
+        // Emoji seçim dialogu
+        btnCustomize.setOnClickListener { showEmojiPickerDialog(tvInitials, uid) }
+        tvInitials.setOnClickListener  { showEmojiPickerDialog(tvInitials, uid) }
 
         db.collection("users").document(uid).get().addOnSuccessListener { doc ->
             if (doc.exists()) {
-                val name     = doc.getString("name") ?: "Isimsiz"
+                val name     = doc.getString("name") ?: "İsimsiz"
                 val email    = doc.getString("email") ?: ""
                 val age      = doc.getString("age") ?: "-"
                 val skinType = doc.getString("skinType") ?: "Belirtilmedi"
                 val allergy  = doc.getString("allergyNotes") ?: ""
-                val reminder = doc.getString("reminder") ?: "Kapali"
+                val reminder = doc.getString("reminder") ?: "Kapalı"
+                val gender   = doc.getString("gender") ?: "-"
                 val emoji    = doc.getString("avatarEmoji") ?: "😊"
-                val color    = doc.getString("avatarColor") ?: "#E8823A"
 
                 selectedEmoji = emoji
-                selectedColor = color
-
                 tvName.text         = name
                 tvEmail.text        = email
                 tvAge.text          = age
                 tvSkinType.text     = skinType
                 tvAllergyNotes.text = if (allergy.isEmpty()) "Belirtilmedi" else allergy
                 tvReminder.text     = reminder
+                tvGender.text       = gender
 
                 etNameEdit.setText(name)
                 etAgeEdit.setText(age)
                 etAllergyEdit.setText(allergy)
                 spinnerSkin.setSelection(skinOptions.indexOf(skinType).coerceAtLeast(0))
 
-                applyAvatar(tvInitials, avatarCard, emoji, color)
+                tvInitials.text = emoji
+                tvInitials.textSize = 36f
                 tvInitials.startAnimation(scaleIn)
             }
         }
@@ -151,7 +141,7 @@ class ProfileActivity : AppCompatActivity() {
             val age     = etAgeEdit.text.toString().trim()
             val allergy = etAllergyEdit.text.toString().trim()
             val skin    = spinnerSkin.selectedItem.toString()
-            if (name.isEmpty()) { Toast.makeText(this, "Ad bos olamaz", Toast.LENGTH_SHORT).show(); return@setOnClickListener }
+            if (name.isEmpty()) { Toast.makeText(this, "Ad boş olamaz", Toast.LENGTH_SHORT).show(); return@setOnClickListener }
 
             tvName.text         = name
             tvAge.text          = if (age.isEmpty()) "-" else age
@@ -165,7 +155,7 @@ class ProfileActivity : AppCompatActivity() {
             db.collection("users").document(uid).update(
                 mapOf("name" to name, "age" to age, "skinType" to skin, "allergyNotes" to allergy)
             ).addOnSuccessListener {
-                Toast.makeText(this, "Profil guncellendi", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Profil güncellendi", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -173,14 +163,14 @@ class ProfileActivity : AppCompatActivity() {
             .orderBy("timestamp", Query.Direction.DESCENDING)
             .limit(20).get()
             .addOnSuccessListener { docs ->
-                val high = docs.count { it.getString("risk")?.contains("YÜKSEK") == true || it.getString("risk")?.contains("YUKSEK") == true }
+                val high = docs.count { it.getString("risk")?.contains("YÜKSEK") == true || it.getString("risk")?.contains("YÜKSEK") == true }
                 val mid  = docs.count { it.getString("risk") == "ORTA" }
-                val low  = docs.count { it.getString("risk")?.contains("DÜŞÜK") == true || it.getString("risk")?.contains("DUSUK") == true }
+                val low  = docs.count { it.getString("risk")?.contains("DÜŞÜK") == true || it.getString("risk")?.contains("DÜŞÜK") == true }
 
                 pieChart.setData(low, mid, high)
-                tvLegendHigh.text = "Yuksek: $high"
+                tvLegendHigh.text = "Yüksek: $high"
                 tvLegendMid.text  = "Orta: $mid"
-                tvLegendLow.text  = "Dusuk: $low"
+                tvLegendLow.text  = "Düşük: $low"
 
                 if (docs.isEmpty) {
                     tvNoScans.visibility = View.VISIBLE
@@ -210,11 +200,7 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
-    private fun showAvatarCustomizeDialog(
-        tvInitials: TextView,
-        avatarCard: CardView,
-        uid: String
-    ) {
+    private fun showEmojiPickerDialog(tvInitials: TextView, uid: String) {
         val dp = resources.displayMetrics.density
 
         val dialogView = LinearLayout(this).apply {
@@ -222,16 +208,15 @@ class ProfileActivity : AppCompatActivity() {
             setPadding((20*dp).toInt(), (24*dp).toInt(), (20*dp).toInt(), (16*dp).toInt())
         }
 
-        // Başlık
         dialogView.addView(TextView(this).apply {
-            text = "Avatarini Ozellestir"
+            text = "Avatar Emoji Seç"
             textSize = 18f
             setTextColor(Color.parseColor("#2C2318"))
             setTypeface(null, Typeface.BOLD)
             setPadding(0, 0, 0, (4*dp).toInt())
         })
         dialogView.addView(TextView(this).apply {
-            text = "Bir emoji ve renk sec"
+            text = "Profilinde görünecek emojiyi seç"
             textSize = 13f
             setTextColor(Color.parseColor("#B5A898"))
             setPadding(0, 0, 0, (20*dp).toInt())
@@ -240,7 +225,7 @@ class ProfileActivity : AppCompatActivity() {
         // Önizleme
         val previewEmoji = TextView(this).apply {
             text = selectedEmoji
-            textSize = 36f
+            textSize = 40f
             gravity = Gravity.CENTER
             val size = (80*dp).toInt()
             layoutParams = LinearLayout.LayoutParams(size, size).also {
@@ -249,176 +234,73 @@ class ProfileActivity : AppCompatActivity() {
             }
             background = GradientDrawable().apply {
                 shape = GradientDrawable.OVAL
-                setColor(Color.parseColor(selectedColor))
+                setColor(Color.parseColor("#FFF3E0"))
+                setStroke((2*dp).toInt(), Color.parseColor("#D17F52"))
             }
         }
         dialogView.addView(previewEmoji)
 
-        // Emoji seçimi başlığı
-        dialogView.addView(TextView(this).apply {
-            text = "EMOJI"
-            textSize = 11f
-            setTextColor(Color.parseColor("#B5A898"))
-            letterSpacing = 0.15f
-            setPadding(0, 0, 0, (10*dp).toInt())
-        })
-
-        // Emoji grid - 4 sütun
-        val emojiGrid = GridLayout(this).apply {
+        // Emoji grid
+        val grid = GridLayout(this).apply {
             columnCount = 4
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
-            ).also { it.bottomMargin = (20*dp).toInt() }
+            )
         }
 
         avatarEmojis.forEach { emoji ->
             val btn = TextView(this).apply {
                 text = emoji
-                textSize = 28f
+                textSize = 30f
                 gravity = Gravity.CENTER
-                val size = (60*dp).toInt()
-                val params = GridLayout.LayoutParams().apply {
+                val size = (64*dp).toInt()
+                layoutParams = GridLayout.LayoutParams().apply {
                     width = size; height = size
                     setMargins((4*dp).toInt(), (4*dp).toInt(), (4*dp).toInt(), (4*dp).toInt())
                 }
-                layoutParams = params
                 background = GradientDrawable().apply {
                     shape = GradientDrawable.OVAL
-                    setColor(if (emoji == selectedEmoji) Color.parseColor(selectedColor) else Color.parseColor("#F0EAE1"))
+                    setColor(if (emoji == selectedEmoji) Color.parseColor("#FFE0C0") else Color.parseColor("#F0EAE1"))
+                    if (emoji == selectedEmoji) setStroke((2*dp).toInt(), Color.parseColor("#D17F52"))
                 }
                 setOnClickListener {
                     selectedEmoji = emoji
                     previewEmoji.text = emoji
-                    // Grid'i yenile
-                    for (i in 0 until emojiGrid.childCount) {
-                        val child = emojiGrid.getChildAt(i) as TextView
-                        child.background = GradientDrawable().apply {
-                            shape = GradientDrawable.OVAL
-                            setColor(if (child.text == selectedEmoji) Color.parseColor(selectedColor) else Color.parseColor("#F0EAE1"))
-                        }
-                    }
-                }
-            }
-            emojiGrid.addView(btn)
-        }
-        dialogView.addView(emojiGrid)
-
-        // Renk seçimi başlığı
-        dialogView.addView(TextView(this).apply {
-            text = "ARKA PLAN RENGI"
-            textSize = 11f
-            setTextColor(Color.parseColor("#B5A898"))
-            letterSpacing = 0.15f
-            setPadding(0, 0, 0, (10*dp).toInt())
-        })
-
-        // Renk satırı
-        val colorRow = LinearLayout(this).apply {
-            orientation = LinearLayout.HORIZONTAL
-            gravity = Gravity.CENTER
-            layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            ).also { it.bottomMargin = (8*dp).toInt() }
-        }
-
-        avatarColors.forEach { color ->
-            val circle = View(this).apply {
-                val size = (40*dp).toInt()
-                layoutParams = LinearLayout.LayoutParams(size, size).also {
-                    it.setMargins((6*dp).toInt(), 0, (6*dp).toInt(), 0)
-                }
-                background = GradientDrawable().apply {
-                    shape = GradientDrawable.OVAL
-                    setColor(Color.parseColor(color))
-                    if (color == selectedColor) setStroke((3*dp).toInt(), Color.parseColor("#2C2318"))
-                }
-                setOnClickListener {
-                    selectedColor = color
-                    previewEmoji.background = GradientDrawable().apply {
-                        shape = GradientDrawable.OVAL
-                        setColor(Color.parseColor(color))
-                    }
-                    // Renk seçimini güncelle
-                    for (i in 0 until colorRow.childCount) {
-                        val child = colorRow.getChildAt(i)
-                        val c = avatarColors[i]
+                    for (i in 0 until grid.childCount) {
+                        val child = grid.getChildAt(i) as TextView
                         (child.background as GradientDrawable).apply {
-                            if (c == selectedColor) setStroke((3*dp).toInt(), Color.parseColor("#2C2318"))
+                            setColor(if (child.text == selectedEmoji) Color.parseColor("#FFE0C0") else Color.parseColor("#F0EAE1"))
+                            if (child.text == selectedEmoji) setStroke((2*dp).toInt(), Color.parseColor("#D17F52"))
                             else setStroke(0, Color.TRANSPARENT)
                         }
                     }
-                    // Emoji grid arka planlarını güncelle
-                    for (i in 0 until emojiGrid.childCount) {
-                        val child = emojiGrid.getChildAt(i) as TextView
-                        child.background = GradientDrawable().apply {
-                            shape = GradientDrawable.OVAL
-                            setColor(if (child.text == selectedEmoji) Color.parseColor(selectedColor) else Color.parseColor("#F0EAE1"))
-                        }
-                    }
                 }
             }
-            colorRow.addView(circle)
+            grid.addView(btn)
         }
-        dialogView.addView(colorRow)
+        dialogView.addView(grid)
 
         AlertDialog.Builder(this)
             .setView(dialogView)
             .setPositiveButton("Kaydet") { _, _ ->
-                applyAvatar(tvInitials, avatarCard, selectedEmoji, selectedColor)
-                db.collection("users").document(uid).update(
-                    mapOf("avatarEmoji" to selectedEmoji, "avatarColor" to selectedColor)
-                )
-                Toast.makeText(this, "Avatar guncellendi", Toast.LENGTH_SHORT).show()
+                tvInitials.text = selectedEmoji
+                tvInitials.textSize = 36f
+                db.collection("users").document(uid)
+                    .update("avatarEmoji", selectedEmoji)
+                Toast.makeText(this, "Avatar güncellendi", Toast.LENGTH_SHORT).show()
             }
-            .setNegativeButton("Iptal", null)
+            .setNegativeButton("İptal", null)
             .show()
     }
 
-    private fun applyAvatar(tvInitials: TextView, avatarCard: CardView, emoji: String, color: String) {
-        tvInitials.text = emoji
-        tvInitials.textSize = 32f
-        tvInitials.background = GradientDrawable().apply {
-            shape = GradientDrawable.OVAL
-            setColor(Color.parseColor(color))
-        }
-
-        val parsedColor = Color.parseColor(color)
-        val lightColor = Color.argb(
-            255,
-            (Color.red(parsedColor) + (255 - Color.red(parsedColor)) * 0.75).toInt().coerceIn(0, 255),
-            (Color.green(parsedColor) + (255 - Color.green(parsedColor)) * 0.75).toInt().coerceIn(0, 255),
-            (Color.blue(parsedColor) + (255 - Color.blue(parsedColor)) * 0.75).toInt().coerceIn(0, 255)
-        )
-        avatarCard.setCardBackgroundColor(lightColor)
-    }
-
-    private fun createScanCard(
-        diagnosis: String, risk: String,
-        confidence: Int, region: String, date: String
-    ): View {
+    private fun createScanCard(diagnosis: String, risk: String, confidence: Int, region: String, date: String): View {
         val dp = resources.displayMetrics.density
-        val riskColor = when {
-            risk.contains("YÜKSEK") || risk.contains("YUKSEK") -> "#C05050"
-            risk == "ORTA" -> "#C4963A"
-            else -> "#5D8A5E"
-        }
-        val riskBg = when {
-            risk.contains("YÜKSEK") || risk.contains("YUKSEK") -> "#FFF0F0"
-            risk == "ORTA" -> "#FFF8EC"
-            else -> "#F0F7F0"
-        }
-        val riskEmoji = when {
-            risk.contains("YÜKSEK") || risk.contains("YUKSEK") -> "🔴"
-            risk == "ORTA" -> "⚠️"
-            else -> "✅"
-        }
-        val riskLabel = when {
-            risk.contains("YÜKSEK") || risk.contains("YUKSEK") -> "YUKSEK"
-            risk == "ORTA" -> "ORTA"
-            else -> "DUSUK"
-        }
+        val riskColor = when { risk.contains("YÜKSEK") || risk.contains("YÜKSEK") -> "#C05050"; risk == "ORTA" -> "#C4963A"; else -> "#5D8A5E" }
+        val riskBg    = when { risk.contains("YÜKSEK") || risk.contains("YÜKSEK") -> "#FFF0F0"; risk == "ORTA" -> "#FFF8EC"; else -> "#F0F7F0" }
+        val riskEmoji = when { risk.contains("YÜKSEK") || risk.contains("YÜKSEK") -> "🔴"; risk == "ORTA" -> "⚠️"; else -> "✅" }
+        val riskLabel = when { risk.contains("YÜKSEK") || risk.contains("YÜKSEK") -> "YÜKSEK"; risk == "ORTA" -> "ORTA"; else -> "DÜŞÜK" }
+
         val card = CardView(this).apply {
             radius = 16f * dp; cardElevation = 2f
             setCardBackgroundColor(Color.parseColor("#FFFFFF"))
@@ -440,24 +322,21 @@ class ProfileActivity : AppCompatActivity() {
         }
         middle.addView(TextView(this).apply { text = diagnosis; textSize = 14f; setTextColor(Color.parseColor("#2C2318")); setTypeface(null, Typeface.BOLD) })
         middle.addView(TextView(this).apply { text = "$date · $region"; textSize = 12f; setTextColor(Color.parseColor("#B5A898")); setPadding(0, (3*dp).toInt(), 0, 0) })
-        middle.addView(TextView(this).apply { text = "Guven: %$confidence"; textSize = 11f; setTextColor(Color.parseColor("#C8BDB1")); setPadding(0, (2*dp).toInt(), 0, 0) })
+        middle.addView(TextView(this).apply { text = "Güven: %$confidence"; textSize = 11f; setTextColor(Color.parseColor("#C8BDB1")); setPadding(0, (2*dp).toInt(), 0, 0) })
         val tvRisk = TextView(this).apply {
-            text = "$riskEmoji\n$riskLabel"; textSize = 10f
-            setTextColor(Color.parseColor(riskColor)); setTypeface(null, Typeface.BOLD); gravity = Gravity.CENTER
+            text = "$riskEmoji\n$riskLabel"; textSize = 10f; setTextColor(Color.parseColor(riskColor))
+            setTypeface(null, Typeface.BOLD); gravity = Gravity.CENTER
             setPadding((10*dp).toInt(), (8*dp).toInt(), (10*dp).toInt(), (8*dp).toInt())
-            background = GradientDrawable().apply {
-                cornerRadius = 10f*dp; setColor(Color.parseColor(riskBg))
-                setStroke((1*dp).toInt(), Color.parseColor(riskColor))
-            }
+            background = GradientDrawable().apply { cornerRadius = 10f*dp; setColor(Color.parseColor(riskBg)); setStroke((1*dp).toInt(), Color.parseColor(riskColor)) }
         }
         inner.addView(stripe); inner.addView(middle); inner.addView(tvRisk)
         card.addView(inner)
         card.setOnClickListener {
-            val intent = Intent(this, ScanDetailActivity::class.java).apply {
+            startActivity(Intent(this, ScanDetailActivity::class.java).apply {
                 putExtra("diagnosis", diagnosis); putExtra("risk", risk)
                 putExtra("confidence", confidence); putExtra("region", region); putExtra("date", date)
-            }
-            startActivity(intent); overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+            })
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
         return card
     }

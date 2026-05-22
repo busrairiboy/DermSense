@@ -160,7 +160,7 @@
                             android:text="👤" android:textSize="20sp" android:gravity="center"
                             android:background="@drawable/circle_orange_light" android:layout_marginBottom="6dp"/>
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="Sirt" android:textColor="#2C2318" android:textSize="13sp" android:textStyle="bold"/>
+                            android:text="Sırt" android:textColor="#2C2318" android:textSize="13sp" android:textStyle="bold"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
@@ -221,7 +221,7 @@
             android:layout_height="wrap_content"
             android:text="Bölge secin"
             android:textSize="13sp"
-            android:textColor="#F4A574"
+            android:textColor="#8F4520"
             android:gravity="center"
             android:layout_marginBottom="10dp"/>
 
