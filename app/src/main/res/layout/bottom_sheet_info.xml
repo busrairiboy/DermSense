@@ -11,16 +11,16 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Handle -->
+        <!-- Handle çubuğu -->
         <View
             android:layout_width="40dp"
             android:layout_height="4dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/deco_circle_bottom"/>
+            android:background="@drawable/input_bg_light"/>
 
-        <!-- Başlık -->
+        <!-- Başlık alanı -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bilgi ve Oneriler"
+                android:text="Bilgi ve Öneriler"
                 android:textSize="11sp"
                 android:textColor="#B5A898"
                 android:letterSpacing="0.1"
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:text="---"
                 android:textSize="18sp"
-                android:textColor="#E8823A"
+                android:textColor="#B85C2A"
                 android:textStyle="bold"
                 android:layout_marginBottom="12dp"/>
 
@@ -69,20 +69,22 @@
                     android:id="@+id/btnGetInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="44dp"
-                    android:text="Goster"
+                    android:text="Göster"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"
-                    android:backgroundTint="#E8823A"
+                    android:backgroundTint="#F4A574"
                     app:cornerRadius="10dp"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"/>
             </LinearLayout>
         </LinearLayout>
 
-        <View android:layout_width="match_parent" android:layout_height="1dp"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
             android:background="#E8E0D5"/>
 
-        <!-- İçerik -->
+        <!-- İçerik ScrollView -->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -111,8 +113,11 @@
             android:paddingTop="12dp"
             android:paddingBottom="20dp">
 
-            <View android:layout_width="match_parent" android:layout_height="1dp"
-                android:background="#E8E0D5" android:layout_marginBottom="12dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E8E0D5"
+                android:layout_marginBottom="12dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -129,7 +134,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="13sp"
                     android:textStyle="bold"
-                    android:backgroundTint="#E8823A"
+                    android:backgroundTint="#F4A574"
                     app:cornerRadius="12dp"/>
 
                 <Button
@@ -139,12 +144,13 @@
                     android:layout_weight="1"
                     android:layout_marginStart="6dp"
                     android:text="Hastane Bul"
-                    android:textColor="#E8823A"
+                    android:textColor="#B85C2A"
                     android:textSize="13sp"
                     android:textStyle="bold"
-                    android:backgroundTint="#FFF3E0"
+                    android:backgroundTint="#F0EAE1"
                     app:cornerRadius="12dp"/>
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

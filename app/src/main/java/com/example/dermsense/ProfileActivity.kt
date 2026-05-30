@@ -8,6 +8,7 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -64,10 +65,32 @@ class ProfileActivity : AppCompatActivity() {
         val btnCancelEdit  = findViewById<Button>(R.id.btnCancelEdit)
         val btnCustomize   = findViewById<TextView>(R.id.btnChangeColor)
 
-        val skinOptions = listOf("Tip I-II (Acik)", "Tip III-IV (Orta)", "Tip V-VI (Koyu)")
-        spinnerSkin.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, skinOptions).also {
-            it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val skinOptions = listOf(
+            "Açık Ten  (Tip I-II)",
+            "Orta Ten  (Tip III-IV)",
+            "Koyu Ten  (Tip V-VI)"
+        )
+
+        val skinAdapter = object : ArrayAdapter<String>(this, 0, skinOptions) {
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                return TextView(context).apply {
+                    text = skinOptions[position]
+                    textSize = 13f
+                    setTextColor(Color.parseColor("#2C2318"))
+                    setPadding(0, 0, 0, 0)
+                }
+            }
+            override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+                return TextView(context).apply {
+                    text = skinOptions[position]
+                    textSize = 14f
+                    setTextColor(Color.parseColor("#2C2318"))
+                    setBackgroundColor(Color.parseColor("#FFFFFF"))
+                    setPadding(48, 44, 48, 44)
+                }
+            }
         }
+        spinnerSkin.adapter = skinAdapter
 
         val slideDown = AnimationUtils.loadAnimation(this, R.anim.slide_down)
         val scaleIn   = AnimationUtils.loadAnimation(this, R.anim.scale_in)
@@ -118,7 +141,12 @@ class ProfileActivity : AppCompatActivity() {
                 etNameEdit.setText(name)
                 etAgeEdit.setText(age)
                 etAllergyEdit.setText(allergy)
-                spinnerSkin.setSelection(skinOptions.indexOf(skinType).coerceAtLeast(0))
+                // Firestore'dan gelen eski format veya yeni formatla eşleştir
+                val skinIdx = skinOptions.indexOfFirst { opt ->
+                    opt.contains(skinType, ignoreCase = true) ||
+                            skinType.contains(opt.substringBefore("(").trim(), ignoreCase = true)
+                }.coerceAtLeast(0)
+                spinnerSkin.setSelection(skinIdx)
 
                 tvInitials.text = emoji
                 tvInitials.textSize = 36f

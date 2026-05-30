@@ -205,6 +205,32 @@
                     android:textColor="#2C2318"/>
             </LinearLayout>
 
+            <!-- Fitzpatrick Cilt Tipi -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Fitzpatrick Cilt Tipi" android:textSize="12sp" android:textColor="#B5A898"
+                android:layout_marginBottom="6dp"/>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="52dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:background="@drawable/input_bg_light"
+                android:paddingStart="14dp" android:paddingEnd="14dp" android:layout_marginBottom="4dp">
+                <Spinner
+                    android:id="@+id/spinnerSkinType"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvSkinTypeHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="11sp"
+                android:textColor="#B5A898"
+                android:layout_marginBottom="16dp"
+                android:paddingStart="4dp"/>
+
             <!-- Hata -->
             <TextView android:id="@+id/tvError"
                 android:layout_width="match_parent" android:layout_height="wrap_content"

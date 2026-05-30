@@ -9,6 +9,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import android.widget.AdapterView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -30,8 +31,10 @@ class RegisterActivity : AppCompatActivity() {
         val etEmail       = findViewById<EditText>(R.id.etEmail)
         val etPassword    = findViewById<EditText>(R.id.etPassword)
         val etAge         = findViewById<EditText>(R.id.etAge)
-        val spinnerGender = findViewById<Spinner>(R.id.rgGender)
-        val btnReg        = findViewById<Button>(R.id.btnRegister)
+        val spinnerGender   = findViewById<Spinner>(R.id.rgGender)
+        val spinnerSkinType = findViewById<Spinner>(R.id.spinnerSkinType)
+        val tvSkinTypeHint  = findViewById<TextView>(R.id.tvSkinTypeHint)
+        val btnReg          = findViewById<Button>(R.id.btnRegister)
         val btnLogin      = findViewById<TextView>(R.id.btnLogin)
         val tabLogin      = findViewById<TextView>(R.id.tabLogin)
         val progress      = findViewById<ProgressBar>(R.id.progressBar)
@@ -48,33 +51,101 @@ class RegisterActivity : AppCompatActivity() {
         val criteriaNumber  = findViewById<TextView>(R.id.criteriaNumber)
         val criteriaSpecial = findViewById<TextView>(R.id.criteriaSpecial)
 
-        // Cinsiyet spinner — kapalıyken emoji, açılınca metin
-        val genderOptions = listOf("Kadın", "Erkek", "Belirtmek istemiyorum")
+        // Cinsiyet spinner — placeholder, seçince metin görünür
+        val genderOptions = listOf("Cinsiyet seçin", "Kadın", "Erkek", "Belirtmek istemiyorum")
 
         val genderAdapter = object : ArrayAdapter<String>(this, 0, genderOptions) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val sel = spinnerGender.selectedItemPosition
                 val tv = TextView(context).apply {
-                    text = "👤"
-                    textSize = 20f
+                    if (sel <= 0) {
+                        text = "👤  Cinsiyet seçin"
+                        setTextColor(Color.parseColor("#C8BDB1"))
+                    } else {
+                        text = "👤  ${genderOptions[sel]}"
+                        setTextColor(Color.parseColor("#2C2318"))
+                    }
+                    textSize = 13f
                     gravity = Gravity.CENTER_VERTICAL
-                    setTextColor(Color.parseColor("#C8BDB1"))
                     setPadding(0, 0, 0, 0)
                 }
                 return tv
             }
             override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
-                val tv = TextView(context).apply {
-                    text = genderOptions[position]
-                    textSize = 14f
-                    setTextColor(Color.parseColor("#2C2318"))
-                    setBackgroundColor(Color.parseColor("#FFFFFF"))
-                    setPadding(48, 40, 48, 40)
+                val tv = TextView(context)
+                if (position == 0) {
+                    tv.height = 0
+                    tv.visibility = View.GONE
+                } else {
+                    tv.text = genderOptions[position]
+                    tv.textSize = 14f
+                    tv.setTextColor(Color.parseColor("#2C2318"))
+                    tv.setBackgroundColor(Color.parseColor("#FFFFFF"))
+                    tv.setPadding(48, 40, 48, 40)
                 }
                 return tv
             }
         }
         spinnerGender.adapter = genderAdapter
         spinnerGender.setSelection(0)
+
+        // Fitzpatrick Cilt Tipi spinner
+        val skinTypeOptions = listOf(
+            "Cilt tipini seçin",
+            "Açık Ten  (Tip I-II)",
+            "Orta Ten  (Tip III-IV)",
+            "Koyu Ten  (Tip V-VI)"
+        )
+        val skinTypeHints = listOf(
+            "",
+            "Çok hassas — yüksek SPF şart, kolayca yanar",
+            "Orta hassasiyet — düzenli koruma önerilir",
+            "Düşük yanma riski — yine de koruma önemli"
+        )
+
+        val skinAdapter = object : ArrayAdapter<String>(this, 0, skinTypeOptions) {
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val sel = spinnerSkinType.selectedItemPosition
+                val tv = TextView(context).apply {
+                    if (sel <= 0) {
+                        text = "🌡️  Cilt tipini seçin"
+                        setTextColor(Color.parseColor("#C8BDB1"))
+                    } else {
+                        text = "🌡️  ${skinTypeOptions[sel]}"
+                        setTextColor(Color.parseColor("#2C2318"))
+                    }
+                    textSize = 13f
+                    gravity = Gravity.CENTER_VERTICAL
+                    setPadding(0, 0, 0, 0)
+                }
+                return tv
+            }
+            override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val tv = TextView(context)
+                if (position == 0) {
+                    tv.height = 0
+                    tv.visibility = View.GONE
+                } else {
+                    tv.text = skinTypeOptions[position]
+                    tv.textSize = 13f
+                    tv.setTextColor(Color.parseColor("#2C2318"))
+                    tv.setBackgroundColor(Color.parseColor("#FFFFFF"))
+                    tv.setPadding(48, 36, 48, 36)
+                }
+                return tv
+            }
+        }
+        spinnerSkinType.adapter = skinAdapter
+        spinnerSkinType.setSelection(0) // placeholder
+
+        tvSkinTypeHint.text = ""
+
+        spinnerSkinType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
+                tvSkinTypeHint.text = skinTypeHints[pos]
+            }
+            override fun onNothingSelected(p: AdapterView<*>?) {}
+        }
 
         etPassword.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -96,7 +167,9 @@ class RegisterActivity : AppCompatActivity() {
             val email     = etEmail.text.toString().trim()
             val pass      = etPassword.text.toString().trim()
             val age       = etAge.text.toString().trim()
-            val gender    = genderOptions[spinnerGender.selectedItemPosition]
+            val gender    = if (spinnerGender.selectedItemPosition <= 0) "" else genderOptions[spinnerGender.selectedItemPosition]
+            val skinPos   = spinnerSkinType.selectedItemPosition
+            val skinType  = if (skinPos <= 0) "" else skinTypeOptions[skinPos].substringBefore("—").trim()
 
             if (firstName.isEmpty() || email.isEmpty() || pass.isEmpty()) {
                 showError(tvError, "Ad, e-posta ve şifre zorunludur")
@@ -121,7 +194,7 @@ class RegisterActivity : AppCompatActivity() {
                                 "age"       to age,
                                 "email"     to email,
                                 "gender"    to gender,
-                                "skinType"  to "Tip III-IV (Orta)",
+                                "skinType"  to skinType,
                                 "createdAt" to System.currentTimeMillis()
                             )
                         )

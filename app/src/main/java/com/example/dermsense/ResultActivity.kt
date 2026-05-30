@@ -133,7 +133,7 @@ class ResultActivity : AppCompatActivity() {
                     tvConfidence.text = "Model Güveni: ${confidence.toInt()}%"
                     progressBar.progress = confidence.toInt()
                     tvRisk.text = "$riskEmoji $riskText RİSK"
-                    tvRisk.setTextColor(Color.parseColor(riskColor))
+                    tvRisk.setTextColor(Color.parseColor("#2C2318"))
                     tvA.text = abcde["A"]!!.first; tvB.text = abcde["B"]!!.first
                     tvC.text = abcde["C"]!!.first; tvD.text = abcde["D"]!!.first
                     setStatus(tvAStatus, abcde["A"]!!.second)

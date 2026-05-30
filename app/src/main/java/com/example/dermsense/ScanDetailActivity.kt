@@ -92,7 +92,7 @@ class ScanDetailActivity : AppCompatActivity() {
         tvDate.text       = "📅 $date"
         tvRegion.text     = "📍 $region"
         tvRisk.text       = "$riskEmoji $risk RİSK"
-        tvRisk.setTextColor(Color.parseColor(riskColor))
+        tvRisk.setTextColor(Color.parseColor("#2C2318"))
         tvConfidence.text = "Model Güveni: %$confidence"
         progressBar.progress = confidence
 

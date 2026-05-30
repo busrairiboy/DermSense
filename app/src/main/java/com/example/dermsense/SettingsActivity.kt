@@ -6,9 +6,12 @@ import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
@@ -88,10 +91,33 @@ class SettingsActivity : AppCompatActivity() {
 
         // Tarama hatırlatıcısı
         val reminderSpinner = findViewById<Spinner>(R.id.spinnerReminder)
-        val reminderOptions = listOf("Kapalı", "7 günde bir", "14 günde bir", "30 günde bir")
-        reminderSpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, reminderOptions).also {
-            it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val reminderOptions = listOf(
+            "Kapalı",
+            "Her hafta  (7 günde bir)",
+            "İki haftada bir  (14 günde bir)",
+            "Her ay  (30 günde bir)"
+        )
+
+        val reminderAdapter = object : ArrayAdapter<String>(this, 0, reminderOptions) {
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                return TextView(context).apply {
+                    text = reminderOptions[position]
+                    textSize = 13f
+                    setTextColor(Color.parseColor("#2C2318"))
+                    setPadding(0, 0, 0, 0)
+                }
+            }
+            override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+                return TextView(context).apply {
+                    text = reminderOptions[position]
+                    textSize = 14f
+                    setTextColor(Color.parseColor("#2C2318"))
+                    setBackgroundColor(Color.parseColor("#FFFFFF"))
+                    setPadding(48, 44, 48, 44)
+                }
+            }
         }
+        reminderSpinner.adapter = reminderAdapter
         reminderSpinner.setSelection(prefs.getInt("reminder_idx", 0))
         reminderSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p: AdapterView<*>?, v: android.view.View?, pos: Int, id: Long) {
