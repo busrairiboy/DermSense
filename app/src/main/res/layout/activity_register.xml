@@ -68,7 +68,6 @@
                     <EditText android:id="@+id/etFirstName"
                         android:layout_width="match_parent" android:layout_height="52dp"
                         android:textColor="#2C2318" android:textColorHint="#C8BDB1"
-                        android:inputType="textPersonName"
                         android:background="@drawable/input_bg_light"
                         android:paddingStart="14dp" android:paddingEnd="14dp"/>
                 </LinearLayout>
@@ -80,7 +79,6 @@
                     <EditText android:id="@+id/etLastName"
                         android:layout_width="match_parent" android:layout_height="52dp"
                         android:textColor="#2C2318" android:textColorHint="#C8BDB1"
-                        android:inputType="textPersonName"
                         android:background="@drawable/input_bg_light"
                         android:paddingStart="14dp" android:paddingEnd="14dp"/>
                 </LinearLayout>
